@@ -1,6 +1,6 @@
 from datevault import db
 
-class Login(db.Modelodel):
+class Login(db.Model):
     #schema for the login model
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.VARCHAR(50), unique=True, nullable=False)
