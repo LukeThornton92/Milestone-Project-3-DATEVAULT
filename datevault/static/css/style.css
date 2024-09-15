@@ -16,6 +16,10 @@ h1 {
 .vault {
   align-items: center;
 }
+
+.form-text {
+  color: #ede7d7;
+}
 /* Vault door animation on home screen */
 .vault-door-outer {
   position: relative;
