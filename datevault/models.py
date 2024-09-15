@@ -1,6 +1,6 @@
 from datevault import db
 
-class Login(db.model):
+class Login(db.Modelodel):
     #schema for the login model
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.VARCHAR(50), unique=True, nullable=False)
@@ -14,3 +14,4 @@ class Login(db.model):
     def __repr__(self):
         #__repr__ to represent itself in the form of a string.
         return self.user_name
+    
