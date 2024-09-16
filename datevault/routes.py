@@ -16,5 +16,5 @@ def signup():
     return render_template("signup.html")
 
 @app.route("/add_partner", methods=["GET", "POST"])
-def signup():
+def add_partner():
     return render_template("add_partner.html")
