@@ -14,3 +14,7 @@ def login():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     return render_template("signup.html")
+
+@app.route("/add_partner", methods=["GET", "POST"])
+def signup():
+    return render_template("add_partner.html")
