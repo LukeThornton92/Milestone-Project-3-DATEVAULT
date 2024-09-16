@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from datevault import app, db
 from datevault.models import Login
 
@@ -9,6 +9,11 @@ def home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        login = Login(
+                password=request.form.get("password"),
+                email=request.form.get("email"),
+        )
     return render_template("login.html")
 
 @app.route("/signup", methods=["GET", "POST"])
