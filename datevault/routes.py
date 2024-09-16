@@ -14,8 +14,9 @@ def login():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
+        print("Signup form submitted")
         signup = Login(
-            user_name=request.form.get("user_name") 
+            user_name=request.form.get("user_name"),
             password=request.form.get("SignupPassword"),
             email=request.form.get("email"),
             partner_user_name="",
@@ -24,6 +25,7 @@ def signup():
         )
         db.session.add(signup)
         db.session.commit()
+        print("New user added to the database")
         return redirect(url_for("login"))
     return render_template("signup.html")
 

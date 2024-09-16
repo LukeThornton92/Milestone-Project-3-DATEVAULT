@@ -1,11 +1,11 @@
 {% extends "base.html" %} {% block content %}
 <h1>Sign Up</h1>
 
-<form>
+<form method="POST" action="{{ url_for('signup') }}">
   <div class="mb-3">
     <label for="user_name" class="form-label">Name</label>
     <input
-      type="#"
+      type="text"
       class="form-control"
       name="user_name"
       id="user_name"
