@@ -5,20 +5,30 @@ from datevault.models import Login
 
 @app.route("/")
 def home():
+    '''
+    Creates the Home page
+    '''
     return render_template("home.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    '''
+    Creates the login page and searches database for email, then checks password.
+    '''
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
         # Email search
         user_email = Login.query.filter_by(email=email).first()
-        # D        
+        # Password match?
+
     return render_template("login.html")
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    '''
+    Creates the signup page and updates database with signup info.
+    '''
     if request.method == "POST":
         print("Signup form submitted")
         signup = Login(
