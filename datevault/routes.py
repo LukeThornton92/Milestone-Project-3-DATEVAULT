@@ -21,7 +21,9 @@ def login():
         # Email search
         user_email = Login.query.filter_by(email=email).first()
         # Password match?
-
+        if user_email and user_email.password == password:
+            session['email'] = user_email.email
+            return redirect(url_for("home"))
     return render_template("login.html")
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -35,6 +37,7 @@ def signup():
             user_name=request.form.get("user_name"),
             password=request.form.get("SignupPassword"),
             email=request.form.get("email"),
+            # Blank due to not being populated on form.
             partner_user_name="",
             partner_password="",
             partner_email=""
