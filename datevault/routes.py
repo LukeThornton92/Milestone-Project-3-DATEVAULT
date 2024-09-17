@@ -23,10 +23,12 @@ def login():
         # Password match?
         if user_email and user_email.password == password:
             session['user_id'] = user_email.id
+            session['user_name'] = user_email.user_name
             return redirect(url_for("home"))
         else:
             # Typo or no account
             flash("Invalid email or password. Please try again.", "danger")
+            print("Error, Invalid email")
     return render_template("login.html")
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -37,6 +39,7 @@ def signup():
     if request.method == "POST":
         print("Signup form submitted")
         signup = Login(
+            # Createsa new user 
             user_name=request.form.get("user_name"),
             password=request.form.get("SignupPassword"),
             email=request.form.get("email"),
