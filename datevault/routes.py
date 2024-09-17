@@ -57,3 +57,12 @@ def signup():
 @app.route("/add_partner", methods=["GET", "POST"])
 def add_partner():
     return render_template("add_partner.html")
+
+@app.route("/logout")
+def logout():
+    '''
+    logs user out, clears session
+    '''
+    session.pop('user_id', None)
+    flash("You have been logged out.","info")
+    return redirect(url_for("home"))
