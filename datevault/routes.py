@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, session
+from flask import render_template, request, redirect, url_for, session, flash
 from datevault import app, db
 from datevault.models import Login
 
@@ -24,6 +24,9 @@ def login():
         if user_email and user_email.password == password:
             session['user_id'] = user_email.id
             return redirect(url_for("home"))
+        else:
+            # Typo or no account
+            flash("Invalid email or password. Please try again.", "danger")
     return render_template("login.html")
 
 @app.route("/signup", methods=["GET", "POST"])
