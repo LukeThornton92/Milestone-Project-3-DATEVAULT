@@ -22,7 +22,7 @@ def login():
         user_email = Login.query.filter_by(email=email).first()
         # Password match?
         if user_email and user_email.password == password:
-            session['email'] = user_email.email
+            session['user_id'] = user_email.id
             return redirect(url_for("home"))
     return render_template("login.html")
 
