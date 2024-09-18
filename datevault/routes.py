@@ -40,7 +40,7 @@ def signup():
     if request.method == "POST":
         print("Signup form submitted")
         signup = Login(
-            # Createsa new user 
+            # Creates a new user 
             user_name=request.form.get("user_name"),
             password=request.form.get("SignupPassword"),
             email=request.form.get("email"),
@@ -51,12 +51,31 @@ def signup():
         )
         db.session.add(signup)
         db.session.commit()
-        print("New user added to the database")
+        print("New partner added to the account")
         return redirect(url_for("login"))
     return render_template("signup.html")
 
 @app.route("/add_partner", methods=["GET", "POST"])
 def add_partner():
+    '''
+    Creates the signup page for partner and updates database with signup info.
+    '''
+    if request.method == "POST":
+        print("Signup form submitted")
+        add_partner = Login(
+            # Blank due to not being populated on form.
+            user_name="",
+            password="",
+            email="",
+            # Creates a partner.
+            partner_user_name=request.form.get("partner_user_name"),
+            partner_password=request.form.get("partner_password"),
+            partner_email=request.form.get("partner_email")
+        )
+        db.session.add(add_partner)
+        db.session.commit()
+        print("New user added to the database")
+        return redirect(url_for("login"))
     return render_template("add_partner.html")
 
 @app.route("/logout")
