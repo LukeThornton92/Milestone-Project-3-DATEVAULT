@@ -24,6 +24,7 @@ def login():
         if user_email and user_email.password == password:
             session['user_id'] = user_email.id
             session['user_name'] = user_email.user_name
+            session['partner_user_name'] = user_email.partner_user_name
             return redirect(url_for("home"))
         else:
             # Typo or no account
