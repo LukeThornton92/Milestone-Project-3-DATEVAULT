@@ -45,9 +45,9 @@ def signup():
             password=request.form.get("SignupPassword"),
             email=request.form.get("email"),
             # Blank due to not being populated on form.
-            partner_user_name="",
-            partner_password="",
-            partner_email=""
+            partner_user_name=None,
+            partner_password=None,
+            partner_email=None
         )
         db.session.add(signup)
         db.session.commit()
@@ -64,9 +64,9 @@ def add_partner():
         print("Signup form submitted")
         add_partner = Login(
             # Blank due to not being populated on form.
-            user_name="",
-            password="",
-            email="",
+            user_name=None,
+            password=None,
+            email=None,
             # Creates a partner.
             partner_user_name=request.form.get("partner_user_name"),
             partner_password=request.form.get("partner_password"),
