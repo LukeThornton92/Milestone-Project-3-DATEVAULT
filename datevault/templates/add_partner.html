@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 <h1>Add Partner</h1>
 <h2>Please hand this over to your partner to get signed up!</h2>
-<form method="POST" action="{{ url_for('signup') }}">
+<form method="POST" action="{{ url_for('add_partner') }}">
   <div class="mb-3">
     <label for="partner_user_name" class="form-label">User Name</label>
     <input

@@ -61,16 +61,26 @@ def add_partner():
     Creates the signup page for partner and updates database with signup info.
     '''
     if request.method == "POST":
-        print("Signup form submitted")
-        user_id = session.get('user_id')  # Assuming you're tracking the user with session
-        user = Login.query.get(user_id)  # Fetch the current user from DB
+        partner_user_name = request.form.get("partner_user_name")
+        partner_password = request.form.get("partner_SignupPassword")
+        partner_email = request.form.get("partner_email")
+        
+        print(f"Partner Username: {partner_user_name}")
+        print(f"Partner Password: {partner_password}")
+        print(f"Partner Email: {partner_email}")
 
+        if not partner_user_name or not partner_password or not partner_email:
+            flash("Please fill out all partner details.", "warning")
+            return redirect(url_for("add_partner"))
+
+        user_id = session.get('user_id')
+        user = Login.query.get(user_id)
         if user:
-            user.partner_user_name = request.form.get("partner_user_name")
-            user.partner_password = request.form.get("partner_password")
-            user.partner_email = request.form.get("partner_email")
-            db.session.commit()  # Save the updates
-            print("Partner info added")  # Redirect to homepage or another page
+            user.partner_user_name = partner_user_name
+            user.partner_password = partner_password
+            user.partner_email = partner_email
+            db.session.commit()
+            print("Partner info added")
             return redirect(url_for("login"))
     return render_template("add_partner.html")
 
