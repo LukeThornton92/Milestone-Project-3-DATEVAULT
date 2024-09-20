@@ -1,5 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <h1>Home Page</h1>
+
+{% if session.get('user_name') %} Welcome, {{ session.user_name }}! {% else %}
+Welcome, guest! {% endif %}
 <div class="container">
   <div class="row">
     <div class="col vault">

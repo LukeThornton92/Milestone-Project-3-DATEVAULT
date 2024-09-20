@@ -62,20 +62,16 @@ def add_partner():
     '''
     if request.method == "POST":
         print("Signup form submitted")
-        add_partner = Login(
-            # Blank due to not being populated on form.
-            user_name=None,
-            password=None,
-            email=None,
-            # Creates a partner.
-            partner_user_name=request.form.get("partner_user_name"),
-            partner_password=request.form.get("partner_password"),
-            partner_email=request.form.get("partner_email")
-        )
-        db.session.add(add_partner)
-        db.session.commit()
-        print("New user added to the database")
-        return redirect(url_for("login"))
+        user_id = session.get('user_id')  # Assuming you're tracking the user with session
+        user = Login.query.get(user_id)  # Fetch the current user from DB
+
+        if user:
+            user.partner_user_name = request.form.get("partner_user_name")
+            user.partner_password = request.form.get("partner_password")
+            user.partner_email = request.form.get("partner_email")
+            db.session.commit()  # Save the updates
+            print("Partner info added")  # Redirect to homepage or another page
+            return redirect(url_for("login"))
     return render_template("add_partner.html")
 
 @app.route("/logout")
@@ -83,6 +79,6 @@ def logout():
     '''
     logs user out, clears session
     '''
-    session.pop('user_id', None)
+    session.clear()
     flash("You have been logged out.","info")
     return redirect(url_for("home"))
