@@ -13,23 +13,38 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     '''
-    Creates the login page and searches database for email, then checks password.
+    Creates the login page and searches the database for email, then checks the password.
     '''
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        # Email search
-        user_email = Login.query.filter_by(email=email).first()
-        # Password match?
-        if user_email and user_email.password == password:
-            session['user_id'] = user_email.id
-            session['user_name'] = user_email.user_name
-            session['partner_user_name'] = user_email.partner_user_name
+
+        # Check for main account
+        user = Login.query.filter_by(email=email).first()
+
+        if user and user.password == password:
+            session['user_id'] = user.id
+            session['user_name'] = user.user_name
+            
+            # Check if the user has a partner account
+            if user.partner_user_name:
+                session['partner_user_name'] = user.partner_user_name
+            
             return redirect(url_for("home"))
         else:
-            # Typo or no account
-            flash("Invalid email or password. Please try again.", "danger")
-            print("Error, Invalid email")
+            # Check for partner account
+            partner_user = Login.query.filter_by(partner_email=email).first()
+            
+            if partner_user and partner_user.partner_password == password:
+                # If partner account found, set session values
+                session['user_id'] = partner_user.id
+                session['user_name'] = partner_user.partner_user_name  # Use partner's username
+                return redirect(url_for("home"))
+
+        # If neither account was valid
+        flash("Invalid email or password. Please try again.", "danger")
+        print("Error, Invalid email")
+    
     return render_template("login.html")
 
 @app.route("/signup", methods=["GET", "POST"])
