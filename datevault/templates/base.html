@@ -55,11 +55,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Pick A Date</a>
               </li>
-              {% if session['partner_user_name'] == "" %}
+              {% if not session['partner_user_name'] %}
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('add_partner')}}">Add your partner</a>
               </li>
-              {% elif session.get('partner_user_name') %}
+              {% elif session.get('partner_user_name') == %}
               <li class="nav-item">
                 <a class="nav-link" href="#">Welcome, {{ session['partner_user_name'] }}</a>
               </li>
