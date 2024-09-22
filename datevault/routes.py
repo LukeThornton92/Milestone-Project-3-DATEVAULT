@@ -107,3 +107,10 @@ def logout():
     session.clear()
     flash("You have been logged out.","info")
     return redirect(url_for("home"))
+
+@app.route("new_idea")
+def new_idea():
+    '''
+    Creates the new date idea page
+    '''
+    return render_template("new_idea.html")
