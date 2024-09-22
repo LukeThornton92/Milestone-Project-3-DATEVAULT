@@ -73,10 +73,13 @@ def signup():
             partner_password=None,
             partner_email=None
         )
-
+        # Hashes password
+        signup.set_password(password)
+        # Pushes it to Database
         db.session.add(signup)
         db.session.commit()
         print("New partner added to the account")
+        flash("Signup successful! Please log in.","success")
         return redirect(url_for("login"))
     return render_template("signup.html")
 
