@@ -50,20 +50,30 @@ def login():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     '''
-    Creates the signup page and updates database with signup info.
+    Creates the signup page and updates database with signup info. Reviews if user
+    is already in database, also hashes password
     '''
     if request.method == "POST":
         print("Signup form submitted")
+        # Gets info from form
+        user_name=request.form.get("user_name"),
+        password=request.form.get("SignupPassword"),
+        email=request.form.get("email"),
+        # Does this user exist? 
+        existing_user= Login.query.filter_by(email=email).first()
+        if existing_user:
+            flash("Email is alerady registered. Please log in or use another email.","warning")
+            return redirect(url_for("signup"))
         signup = Login(
-            # Creates a new user 
-            user_name=request.form.get("user_name"),
-            password=request.form.get("SignupPassword"),
-            email=request.form.get("email"),
+            # Creates a new user
+            user_name=user_name,
+            email=email,
             # Blank due to not being populated on form.
             partner_user_name=None,
             partner_password=None,
             partner_email=None
         )
+
         db.session.add(signup)
         db.session.commit()
         print("New partner added to the account")
