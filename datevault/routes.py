@@ -21,8 +21,8 @@ def login():
 
         # Check for main account
         user = Login.query.filter_by(email=email).first()
-
-        if user and user.password == password:
+        # Check_password checks hash password 
+        if user and user.check_password(password):
             session['user_id'] = user.id
             session['user_name'] = user.user_name
             
@@ -34,8 +34,8 @@ def login():
         else:
             # Check for partner account
             partner_user = Login.query.filter_by(partner_email=email).first()
-            
-            if partner_user and partner_user.partner_password == password:
+            # Checks partner password hash
+            if partner_user and partner_user.check_partner_password(password):
                 # If partner account found, set session values
                 session['user_id'] = partner_user.id
                 session['user_name'] = partner_user.partner_user_name  # Use partner's username
