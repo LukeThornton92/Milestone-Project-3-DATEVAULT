@@ -80,6 +80,7 @@ def add_partner():
         partner_password = request.form.get("partner_SignupPassword")
         partner_email = request.form.get("partner_email")
         
+        #debugging
         print(f"Partner Username: {partner_user_name}")
         print(f"Partner Password: {partner_password}")
         print(f"Partner Email: {partner_email}")
@@ -108,7 +109,7 @@ def logout():
     flash("You have been logged out.","info")
     return redirect(url_for("home"))
 
-@app.route("new_idea")
+@app.route("/new_idea")
 def new_idea():
     '''
     Creates the new date idea page
