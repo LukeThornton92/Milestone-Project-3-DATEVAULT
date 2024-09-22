@@ -57,11 +57,12 @@ def signup():
     if request.method == "POST":
         print("Signup form submitted")
         # Gets info from form
-        user_name=request.form.get("user_name"),
-        password=request.form.get("SignupPassword"),
-        email=request.form.get("email"),
+        user_name=request.form.get("user_name")
+        password=request.form.get("SignupPassword")
+        email=request.form.get("email")
+        
         # Does this user exist? 
-        existing_user = Login.query.filter(or_(Login.email == partner_email,Login.partner_email == partner_email)).first()
+        existing_user = Login.query.filter(or_(Login.email == email,Login.partner_email == email)).first()
         if existing_user:
             flash("Email is alerady registered. Please log in or use another email.","warning")
             return redirect(url_for("signup"))
@@ -98,7 +99,7 @@ def add_partner():
             flash("Please fill out all partner details.", "warning")
             return redirect(url_for("add_partner"))
         
-        #existing_partner = Login.query.filter_by(email=partner_email).first()
+        # existing_partner = Login.query.filter_by(email=partner_email).first()
 
         user_id = session.get('user_id')
         user = Login.query.get(user_id)
