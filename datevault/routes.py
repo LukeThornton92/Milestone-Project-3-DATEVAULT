@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, session, flash
 from datevault import app, db
 from datevault.models import Login
+from sqlalchemy import or_
 
 
 @app.route("/")
@@ -60,7 +61,7 @@ def signup():
         password=request.form.get("SignupPassword"),
         email=request.form.get("email"),
         # Does this user exist? 
-        existing_user= Login.query.filter_by(email=email).first()
+        existing_user = Login.query.filter(or_(Login.email == partner_email,Login.partner_email == partner_email)).first()
         if existing_user:
             flash("Email is alerady registered. Please log in or use another email.","warning")
             return redirect(url_for("signup"))
@@ -92,15 +93,12 @@ def add_partner():
         partner_user_name = request.form.get("partner_user_name")
         partner_password = request.form.get("partner_SignupPassword")
         partner_email = request.form.get("partner_email")
-        
-        #debugging
-        print(f"Partner Username: {partner_user_name}")
-        print(f"Partner Password: {partner_password}")
-        print(f"Partner Email: {partner_email}")
 
         if not partner_user_name or not partner_password or not partner_email:
             flash("Please fill out all partner details.", "warning")
             return redirect(url_for("add_partner"))
+        
+        #existing_partner = Login.query.filter_by(email=partner_email).first()
 
         user_id = session.get('user_id')
         user = Login.query.get(user_id)
