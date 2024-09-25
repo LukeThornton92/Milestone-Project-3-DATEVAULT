@@ -105,7 +105,7 @@ def add_partner():
         user = Login.query.get(user_id)
         if user:
             user.partner_user_name = partner_user_name
-            user.partner_password_hash = partner_password
+            user.set_partner_password(partner_password)
             user.partner_email = partner_email
             db.session.commit()
             print("Partner info added")
