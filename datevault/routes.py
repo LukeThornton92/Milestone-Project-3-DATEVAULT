@@ -60,7 +60,7 @@ def signup():
         user_name=request.form.get("user_name")
         password=request.form.get("SignupPassword")
         email=request.form.get("email")
-        
+
         # Does this user exist? 
         existing_user = Login.query.filter(or_(Login.email == email,Login.partner_email == email)).first()
         if existing_user:
@@ -72,7 +72,7 @@ def signup():
             email=email,
             # Blank due to not being populated on form.
             partner_user_name=None,
-            partner_password=None,
+            partner_password_hash=None,
             partner_email=None
         )
         # Hashes password
@@ -105,7 +105,7 @@ def add_partner():
         user = Login.query.get(user_id)
         if user:
             user.partner_user_name = partner_user_name
-            user.partner_password = partner_password
+            user.partner_password_hash = partner_password
             user.partner_email = partner_email
             db.session.commit()
             print("Partner info added")
