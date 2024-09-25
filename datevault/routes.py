@@ -108,6 +108,9 @@ def add_partner():
             user.set_partner_password(partner_password)
             user.partner_email = partner_email
             db.session.commit()
+            # Session updates with partner name
+            session['partner_user_name'] = partner_user_name
+
             print("Partner info added")
             return redirect(url_for("login"))
     return render_template("add_partner.html")
