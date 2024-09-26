@@ -132,7 +132,7 @@ def new_idea():
     return render_template("new_idea.html")
 
 @app.route("/pick_a_date")
-def new_idea():
+def pick_a_date():
     '''
     Creates the page to select a random date.
     '''

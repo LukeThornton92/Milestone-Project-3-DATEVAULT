@@ -50,10 +50,10 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">New Date Idea</a>
+                <a class="nav-link" href="{{ url_for('new_idea')}}">New Date Idea</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pick A Date</a>
+                <a class="nav-link" href="{{ url_for('pick_a_date')}}">Pick A Date</a>
               </li>
               {% if not session['partner_user_name'] %}
                 <li class="nav-item">
