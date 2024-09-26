@@ -72,5 +72,5 @@ class Date(db.Model):
 
     def __repr__(self):
         #__repr__ to represent itself in the form of a string.
-        return self.
+        return f"<Date id={self.id}, time={self.is_time.value}, budget={self.is_budget.value}, location={self.is_location.value}, dog_friendly={self.is_dog}, activity={self.is_activity.value}, reservation_required={self.is_reservation}, indoor={self.is_indoor}>"
 
