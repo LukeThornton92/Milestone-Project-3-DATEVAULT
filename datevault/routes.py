@@ -130,3 +130,10 @@ def new_idea():
     Creates the new date idea page
     '''
     return render_template("new_idea.html")
+
+@app.route("/pick_a_date")
+def new_idea():
+    '''
+    Creates the page to select a random date.
+    '''
+    return render_template("pick_a_date.html")
