@@ -58,9 +58,11 @@ class ActivityOptions(enum.Enum):
     MODERATE = "Moderate"
     HIGH = "High"
 
+'''
 class Date(db.Model):
     # Schema for the Date Model
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.string(50), nullable=False)
     is_time = db.Column(Enum(TimeOptions), nullable=False)
     is_budget = db.Column(Enum(BudgetOptions), nullable=False)
     is_location = db.Column(Enum(LocationOptions), nullable=False)
@@ -74,3 +76,5 @@ class Date(db.Model):
         #__repr__ to represent itself in the form of a string.
         return f"<Date id={self.id}, time={self.is_time.value}, budget={self.is_budget.value}, location={self.is_location.value}, dog_friendly={self.is_dog}, activity={self.is_activity.value}, reservation_required={self.is_reservation}, indoor={self.is_indoor}>"
 
+
+'''
