@@ -129,6 +129,18 @@ def new_idea():
     '''
     Creates the new date idea page
     '''
+    '''
+    if request.method == "POST":
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+        x=request.form.get("x")
+    '''
     return render_template("new_idea.html")
 
 @app.route("/pick_a_date")
