@@ -131,15 +131,15 @@ def new_idea():
     '''
     '''
     if request.method == "POST":
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
-        x=request.form.get("x")
+        name=request.form.get("name")
+        is_time=request.form.get("is_time")
+        is_budget=request.form.get("is_budget")
+        is_location=request.form.get("is_location")
+        is_dog=request.form.get("is_dog")
+        is_activity=request.form.get("is_activity")
+        is_reservation=request.form.get("is_reservation")
+        is_indoor=request.form.get("is_indoor")
+        notes=request.form.get("notes")
     '''
     return render_template("new_idea.html")
 
