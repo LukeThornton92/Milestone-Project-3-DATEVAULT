@@ -164,6 +164,7 @@ def new_idea():
         is_indoor=request.form.get("is_indoor")
         notes=request.form.get("notes")
 
+        # Creates a new_date object
         new_date = Date(
             name=name,
             is_time=selected_time,
