@@ -4,96 +4,76 @@
 <div class="container">
   <div class="row justify-content-center">
     <form class="col-12 col-md-6 mx-auto">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        name="name"
+        id="name"
+        class="form-control"
+        aria-describedby="#"
+        required
+        type="text"
+      ></input>
+    </form>
+  </div>
+  <div class="row">
+    <form class="col-12 col-md-6 mx-auto">
+        <label for="is_time" class="form-label">Time:</label>
+        <select name="is_time" id="is_time" class="form-control" aria-describedby="#" required>
+            {% for time in time_options %}
+            <option value="{{ time.name }}">{{ time.value }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      <form class="col-12 col-md-6 mx-auto">
+        <label for="is_budget" class="form-label">Budget:</label>
+        <select name="is_budget" id="is_budget" class="form-control" aria-describedby="#" required>
+            {% for budget in budget_options %}
+            <option value="{{ budget.name }}">{{ budget.value }}</option>
+          {% endfor %}
+        </select>
+      </form>
+  </div>
+  <div class="row">
+    <form class="col-12 col-md-6 mx-auto">
+        <label for="is_location" class="form-label">Location:</label>
+        <select name="is_location" id="is_location" class="form-control" aria-describedby="#" required>
+            {% for location in location_options %}
+            <option value="{{ location.name }}">{{ location.value }}</option>
+          {% endfor %}
+        </select>
+      </form>
+    <form class="col-12 col-md-6">
+      <label for="" class="form-label">2</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id=""
+        aria-describedby="#"
+        required
+      />
+    </form>
+  </div>
+  <div class="row">
+    <form class="col-12 col-md-6">
+      <label for="" class="form-label">1</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id=""
+        aria-describedby="#"
+        required
+      />
+    </form>
+    <form class="col-12 col-md-6 mx-auto">
       <label for="" class="form-label">1</label>
       <select name="" id="" class="form-control" aria-describedby="#" required>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
       </select>
-    </form>
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">2</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
-    </form>
-  </div>
-  <div class="row">
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">1</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
-    </form>
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">2</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
-    </form>
-  </div>
-  <div class="row">
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">1</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
-    </form>
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">2</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
-    </form>
-  </div>
-  <div class="row">
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">1</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
-    </form>
-    <form class="col-12 col-md-6">
-      <label for="" class="form-label">2</label>
-      <input
-        type="text"
-        class="form-control"
-        name=""
-        id=""
-        aria-describedby="#"
-        required
-      />
     </form>
   </div>
   <div class="row">

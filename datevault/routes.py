@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, session, flash
 from datevault import app, db
-from datevault.models import Login
+from datevault.models import Login, Date, TimeOptions, BudgetOptions, LocationOptions, ActivityOptions
 from sqlalchemy import or_
 
 
@@ -129,19 +129,42 @@ def new_idea():
     '''
     Creates the new date idea page
     '''
-    '''
     if request.method == "POST":
         name=request.form.get("name")
         is_time=request.form.get("is_time")
+        # Checks to see if valid entry, protects database. Also converts is_time to a string.
+        if is_time in TimeOptions.__members__:
+            selected_time=TimeOptions[is_time]
+        else:
+            flash("Invalid Time Selection! How did you do that?","error")
+            return redirect(url_for('new_idea'))
         is_budget=request.form.get("is_budget")
+        # Checks to see if valid entry, protects database. Also converts is_budget to a string.
+        if is_budget in BudgetOptions.__members__:
+            selected_budget=BudgetOptions[is_budget]
+        else:
+            flash("Invalid Budget Selection! How did you do that?","error")
+            return redirect(url_for('new_idea'))
         is_location=request.form.get("is_location")
+        # Checks to see if valid entry, protects database. Also converts is_location to a string.
+        if is_location in LocationOptions.__members__:
+            selected_location=LocationOptions[is_location]
+        else:
+            flash("Invalid Location Selection! How did you do that?","error")
+            return redirect(url_for('new_idea'))
         is_dog=request.form.get("is_dog")
         is_activity=request.form.get("is_activity")
+        # Checks to see if valid entry, protects database. Also converts is_activity to a string.
+        if is_activity in ActivityOptions.__members__:
+            selected_activity=ActivityOptions[is_activity]
+        else:
+            flash("Invalid Activity Selection! How did you do that?","error")
+            return redirect(url_for('new_idea'))
         is_reservation=request.form.get("is_reservation")
         is_indoor=request.form.get("is_indoor")
         notes=request.form.get("notes")
-    '''
-    return render_template("new_idea.html")
+    
+    return render_template("new_idea.html", time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions)
 
 @app.route("/pick_a_date")
 def pick_a_date():
