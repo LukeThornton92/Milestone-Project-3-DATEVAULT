@@ -163,6 +163,24 @@ def new_idea():
         is_reservation=request.form.get("is_reservation")
         is_indoor=request.form.get("is_indoor")
         notes=request.form.get("notes")
+
+        new_date = Date(
+            name=name,
+            is_time=selected_time,
+            is_budget=selected_budget,
+            is_location=selected_location,
+            is_dog=is_dog,
+            is_activity=selected_activity,
+            is_reservation=is_reservation,
+            is_indoor=is_indoor,
+            notes=notes,
+            owner_id=session.get('user_id')
+        )
+        db.session(new_date)
+        db.session.commit()
+
+        flash("New date idea added successfully! Add another!", "success")
+        return redirect(url_for("new_idea"))
     
     return render_template("new_idea.html", time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions)
 
