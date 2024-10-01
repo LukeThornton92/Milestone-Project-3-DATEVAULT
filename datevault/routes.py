@@ -124,7 +124,7 @@ def logout():
     flash("You have been logged out.","info")
     return redirect(url_for("home"))
 
-@app.route("/new_idea")
+@app.route("/new_idea", methods=["GET", "POST"])
 def new_idea():
     '''
     Creates the new date idea page
