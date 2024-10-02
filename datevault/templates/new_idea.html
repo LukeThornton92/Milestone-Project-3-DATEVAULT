@@ -2,89 +2,126 @@
 <h1>New Date Idea</h1>
 
 <div class="container">
+  <form method="POST" action="{{ url_for('new_idea') }}">
     <div class="row">
       <div class="col-8">
-        <form class="align-items-center">
-          <label for="name" class="form-label">Date Name:</label>
+        <label for="name" class="form-label">Date Name:</label>
+        <input
+          name="name"
+          id="name"
+          class="form-control"
+          aria-describedby="#"
+          required
+          type="text"
+        />
+      </div>
+      <div class="col-2">
+        <div class="form-check form-switch">
+          <input type="hidden" name="is_dog" value="no" />
+          <label for="is_dog" class="form-label">With Dogs?:</label>
           <input
-            name="name"
-            id="name"
-            class="form-control"
-            aria-describedby="#"
-            required
-            type="text"
+            class="form-check-input"
+            type="checkbox"
+            id="is_dog"
+            value="yes"
+            name="is_dog"
           />
-        </form>
+        </div>
       </div>
       <div class="col-2">
-        <form class="align-items-center form-check form-switch">
-          <label for="flexSwitchCheckDefault" class="form-label">With Dogs?:</label>
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-        </form>
-      </div>
-      <div class="col-2">
-        <form class="align-items-center form-check form-switch">
+        <div class="form-check form-switch">
+          <input type="hidden" name="is_indoor" value="no" />
           <label for="is_indoor" class="form-label">Will it be Indoors?:</label>
-          <input class="form-check-input" type="checkbox" id="is_indoor" name="is_indoor">
-        </form>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="is_indoor"
+            name="is_indoor"
+            value="yes"
+          />
+        </div>
       </div>
-    </div>
-  <div class="row">
-    <form class="col-12 col-md-6 mx-auto">
-        <!--Time Dropdown-->
-        <label for="is_time" class="form-label">Time?:</label>
-        <select name="is_time" id="is_time" class="form-control form-select" aria-describedby="#" required>
-            <option value="" selected disabled>Select Time Of Day</option>
-            {% for time in time_options %}
-            <option value="{{ time.name }}">{{ time.value }}</option>
-          {% endfor %}
-        </select>
-      </form>
-      <form class="col-12 col-md-6 mx-auto">
-        <!--Budget Dropdown-->
-        <label for="is_budget" class="form-label">Budget?:</label>
-        <select name="is_budget" id="is_budget" class="form-control form-select" aria-describedby="#" required>
-            <option value="" selected disabled>Select Budget Needed</option>
-            {% for budget in budget_options %}
-            <option value="{{ budget.name }}">{{ budget.value }}</option>
-          {% endfor %}
-        </select>
-      </form>
-  </div>
-  <div class="row">
-    <form class="col-12 col-md-6 mx-auto">
-        <!--Location Dropdown-->
-        <label for="is_location" class="form-label">Location?:</label>
-        <select name="is_location" id="is_location" class="form-control form-select" aria-describedby="#" required>
-            <option value="" selected disabled>Select Date Location</option>
-            {% for location in location_options %}
-            <option value="{{ location.name }}">{{ location.value }}</option>
-          {% endfor %}
-        </select>
-      </form>
-    <form class="col-12 col-md-6">
-        <!--Activity Dropdown-->
-        <label for="is_activity" class="form-label">Activity?:</label>
-        <select name="is_activity" id="is_location" class="form-control form-select" aria-describedby="#" required>
-            <option value="" selected disabled>Select Activity Level</option>
-            {% for activity in activity_options %}
-            <option value="{{ activity.name }}">{{ activity.value }}</option>
-          {% endfor %}
-        </select>
-      </form>
-    </form>
-  </div>
-  <div class="row">
-    <div class="col-10">
-      <label for="notes" class="form-label">Notes:</label>
-      <form>
-        <textarea id="notes" name="notes" class="form-control"></textarea>
-      </form>
-    </div>
-    <div class="col-2 d-flex align-items-center justify-content-center">
-      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 
-  </div>
+    <div class="row">
+      <div class="col-12 col-md-6 mx-auto">
+        <!-- Time Dropdown -->
+        <label for="is_time" class="form-label">Time?:</label>
+        <select
+          name="is_time"
+          id="is_time"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Time Of Day</option>
+          {% for time in time_options %}
+          <option value="{{ time.name }}">{{ time.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-12 col-md-6 mx-auto">
+        <!-- Budget Dropdown -->
+        <label for="is_budget" class="form-label">Budget?:</label>
+        <select
+          name="is_budget"
+          id="is_budget"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Budget Needed</option>
+          {% for budget in budget_options %}
+          <option value="{{ budget.name }}">{{ budget.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 mx-auto">
+        <!-- Location Dropdown -->
+        <label for="is_location" class="form-label">Location?:</label>
+        <select
+          name="is_location"
+          id="is_location"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Date Location</option>
+          {% for location in location_options %}
+          <option value="{{ location.name }}">{{ location.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-12 col-md-6">
+        <!-- Activity Dropdown -->
+        <label for="is_activity" class="form-label">Activity?:</label>
+        <select
+          name="is_activity"
+          id="is_activity"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Activity Level</option>
+          {% for activity in activity_options %}
+          <option value="{{ activity.name }}">{{ activity.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10">
+        <label for="notes" class="form-label">Notes:</label>
+        <textarea id="notes" name="notes" class="form-control"></textarea>
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
 {% endblock %}
