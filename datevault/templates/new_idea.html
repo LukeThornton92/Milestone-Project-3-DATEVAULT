@@ -4,7 +4,7 @@
 <div class="container">
   <form method="POST" action="{{ url_for('new_idea') }}">
     <div class="row">
-      <div class="col-8">
+      <div class="col-6">
         <label for="name" class="form-label">Date Name:</label>
         <input
           name="name"
@@ -31,12 +31,27 @@
       <div class="col-2">
         <div class="form-check form-switch">
           <input type="hidden" name="is_indoor" value="no" />
-          <label for="is_indoor" class="form-label">Will it be Indoors?:</label>
+          <label for="is_indoor" class="form-label">Will It Be Indoors?:</label>
           <input
             class="form-check-input"
             type="checkbox"
             id="is_indoor"
             name="is_indoor"
+            value="yes"
+          />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-check form-switch">
+          <input type="hidden" name="is_reservation" value="no" />
+          <label for="is_reservation" class="form-label"
+            >Reservation Needed?:</label
+          >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="is_reservation"
+            name="is_reservation"
             value="yes"
           />
         </div>
