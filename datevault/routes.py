@@ -152,7 +152,7 @@ def new_idea():
         else:
             flash("Invalid Location Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
-        is_dog=bool(request.form.get("is_dog"))
+        is_dog = request.form.get("is_dog") == "yes"
         is_activity=request.form.get("is_activity")
         # Checks to see if valid entry, protects database. Also converts is_activity to a string.
         if is_activity in ActivityOptions.__members__:
@@ -160,8 +160,8 @@ def new_idea():
         else:
             flash("Invalid Activity Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
-        is_reservation=bool(request.form.get("is_reservation"))
-        is_indoor=bool(request.form.get("is_indoor"))
+        is_reservation = request.form.get("is_reservation") == "yes"
+        is_indoor = request.form.get("is_indoor") == "yes"
         notes=request.form.get("notes")
 
         # Creates a new_date object
