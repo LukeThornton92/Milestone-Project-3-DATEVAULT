@@ -190,4 +190,43 @@ def pick_a_date():
     '''
     Creates the page to select a random date.
     '''
+    # Any dates in the table?
+    
+    no_date_check = Date.query.count()
+
+    if request.method == "POST":
+        is_time = request.form.get("is_time")
+        is_budget = request.form.get("is_budget")
+        is_location = request.form.get("is_location")
+        is_activity = request.form.get("is_activity")
+        is_dog = request.form.get("is_dog")
+        is_reservation = request.form.get("is_reservation")
+        is_indoor = request.form.get("is_indoor")
+
+        query = Date.query # Builds query
+
+        if is_time:
+            query = query.filter_by(is_time=is_time)
+        if is_budget:
+            query = query.filter_by(is_budget=is_budget)
+        if is_location:
+            query = query.filter_by(is_location=is_location)
+        if is_activity:
+            query = query.filter_by(is_activity=is_activity)
+        if is_dog:
+            query = query.filter_by(is_dog=(is_dog == 'yes'))
+        if is_reservation:
+            query = query.filter_by(is_reservation=(is_reservation == 'yes'))
+        if is_indoor:
+            query = query.filter_by(is_is_indoor=(is_indoor == 'yes'))
+
+        #Gets count of how many dates match
+        result_count = query.count()
+
+        if result_count == 0:
+            flash("No dates found matching your criteria!", "error")
+            return redirect(url_for('pick_a_date'))
+        
+        random_date = query.order_by(func.random()).first()
+
     return render_template("pick_a_date.html")
