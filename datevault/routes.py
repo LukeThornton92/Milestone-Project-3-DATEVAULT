@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for, session, flash
 from datevault import app, db
 from datevault.models import Login, Date, TimeOptions, BudgetOptions, LocationOptions, ActivityOptions
 from sqlalchemy import or_
+from sqlalchemy.sql.expression import func
 
 
 @app.route("/")
@@ -190,8 +191,8 @@ def pick_a_date():
     '''
     Creates the page to select a random date.
     '''
-    # Any dates in the table? Jinja2 uses this.
 
+    # Any dates in the table? Jinja2 uses this.
     user_id = session.get('user_id')
     print(user_id) #debugging
     no_date_check = Date.query.filter_by(owner_id=user_id).first()
@@ -208,28 +209,34 @@ def pick_a_date():
 
         query = Date.query # Builds query
 
-        if is_time:
-            query = query.filter_by(is_time=is_time)
-        if is_budget:
-            query = query.filter_by(is_budget=is_budget)
-        if is_location:
-            query = query.filter_by(is_location=is_location)
-        if is_activity:
-            query = query.filter_by(is_activity=is_activity)
-        if is_dog:
-            query = query.filter_by(is_dog=(is_dog == 'yes'))
-        if is_reservation:
-            query = query.filter_by(is_reservation=(is_reservation == 'yes'))
-        if is_indoor:
-            query = query.filter_by(is_is_indoor=(is_indoor == 'yes'))
+        filters = []
 
-        #Gets count of how many dates match
+        if is_time:
+            filters.append(Date.is_time == is_time)
+        if is_budget and is_budget != "Any":
+            filters.append(Date.is_budget == is_budget)
+        if is_location and is_location != "Any":
+            filters.append(Date.is_location == is_location)
+        if is_activity and is_activity != "Any":
+            filters.append(Date.is_activity == is_activity)
+        if is_dog == True:
+            filters.append(Date.is_dog == is_dog)
+        if is_reservation == True:
+            filters.append(Date.is_reservation == is_reservation)
+        if is_indoor == True:
+            filters.append(Date.is_indoor == is_indoor)
+        # Final line of query, unpacks list and adds all filters to query
+        if filters:
+            query = query.filter(*filter)
+        result = query.all()
+
+        # Gets count of how many dates match
         result_count = query.count()
 
         if result_count == 0:
             flash("No dates found matching your criteria!", "error")
             return redirect(url_for('pick_a_date'))
         
-       # random_date = query.order_by(func.random()).first()
+        random_date = query.order_by(func.random()).first()
 
     return render_template("pick_a_date.html", no_date_check=no_date_check) # no_date_check is passed to the html so jinja works!
