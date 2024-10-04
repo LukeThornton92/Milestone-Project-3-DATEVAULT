@@ -190,9 +190,12 @@ def pick_a_date():
     '''
     Creates the page to select a random date.
     '''
-    # Any dates in the table?
-    
-    no_date_check = Date.query.count()
+    # Any dates in the table? Jinja2 uses this.
+
+    user_id = session.get('user_id')
+    print(user_id) #debugging
+    no_date_check = Date.query.filter_by(owner_id=user_id).first()
+    print(no_date_check)
 
     if request.method == "POST":
         is_time = request.form.get("is_time")
@@ -227,6 +230,6 @@ def pick_a_date():
             flash("No dates found matching your criteria!", "error")
             return redirect(url_for('pick_a_date'))
         
-        random_date = query.order_by(func.random()).first()
+       # random_date = query.order_by(func.random()).first()
 
-    return render_template("pick_a_date.html")
+    return render_template("pick_a_date.html", no_date_check=no_date_check) # no_date_check is passed to the html so jinja works!
