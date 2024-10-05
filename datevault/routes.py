@@ -186,7 +186,7 @@ def new_idea():
     
     return render_template("new_idea.html", time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions)
 
-@app.route("/pick_a_date")
+@app.route("/pick_a_date",  methods=['GET', 'POST'])
 def pick_a_date():
     '''
     Creates the page to select a random date.
@@ -203,9 +203,9 @@ def pick_a_date():
         is_budget = request.form.get("is_budget")
         is_location = request.form.get("is_location")
         is_activity = request.form.get("is_activity")
-        is_dog = request.form.get("is_dog")
-        is_reservation = request.form.get("is_reservation")
-        is_indoor = request.form.get("is_indoor")
+        is_dog = request.form.get("is_dog") == "yes"
+        is_reservation = request.form.get("is_reservation") == "yes"
+        is_indoor = request.form.get("is_indoor") == "yes"
 
         query = Date.query # Builds query
 
@@ -219,16 +219,18 @@ def pick_a_date():
             filters.append(Date.is_location == is_location)
         if is_activity and is_activity != "Any":
             filters.append(Date.is_activity == is_activity)
-        if is_dog == True:
-            filters.append(Date.is_dog == is_dog)
-        if is_reservation == True:
-            filters.append(Date.is_reservation == is_reservation)
-        if is_indoor == True:
-            filters.append(Date.is_indoor == is_indoor)
+        if is_dog:
+            filters.append(Date.is_dog == True)
+        if is_reservation:
+            filters.append(Date.is_reservation == True)
+        if is_indoor:
+            filters.append(Date.is_indoor == True)
         # Final line of query, unpacks list and adds all filters to query
         if filters:
             query = query.filter(*filter)
         result = query.all()
+
+        print(filters)
 
         # Gets count of how many dates match
         result_count = query.count()
@@ -239,4 +241,4 @@ def pick_a_date():
         
         random_date = query.order_by(func.random()).first()
 
-    return render_template("pick_a_date.html", no_date_check=no_date_check) # no_date_check is passed to the html so jinja works!
+    return render_template("pick_a_date.html", no_date_check=no_date_check,  time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions) # no_date_check is passed to the html so jinja works!
