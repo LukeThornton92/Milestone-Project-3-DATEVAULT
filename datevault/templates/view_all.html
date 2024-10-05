@@ -1,22 +1,33 @@
 {% extends "base.html" %} {% block content %}
-<h1>View All Dates</h1>
+<h1>Your Saved Dates</h1>
+
 <div class="container">
   <div class="row">
-    {% for date in dates %}
-    <div class="col">
+    <h2>Found {{ all_dates|length }} dates</h2>
+    # debugging {% if all_dates %} {% for date in all_dates %}
+    <div class="col-md-4 mb-4">
       <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">{{date.name}}</h5>
+          <h5 class="card-title">{{ date.name }}</h5>
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {{ date.description or "No description available." }}
           </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a
+            href="{{ url_for('edit_date', date_id=date.id) }}"
+            class="btn btn-warning"
+            >Edit</a
+          >
+          <a
+            href="{{ url_for('delete_date', date_id=date.id) }}"
+            class="btn btn-danger"
+            >Delete</a
+          >
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <p>No saved dates found. Add some new dates to your vault!</p>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
