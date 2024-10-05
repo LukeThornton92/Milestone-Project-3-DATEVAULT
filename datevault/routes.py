@@ -265,4 +265,13 @@ def view_all():
     print(f"All dates: {all_dates}")
 
     
-    return render_template("view_all.html")
+    return render_template("view_all.html", all_dates=all_dates)
+
+
+@app.route("/edit_date")
+def edit_date():
+    return redirect(url_for("home"))
+
+@app.route("/delete_date")
+def delete_date():
+    return redirect(url_for("home"))
