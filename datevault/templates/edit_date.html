@@ -1,0 +1,161 @@
+{% extends "base.html" %} {% block content %}
+<h1>Edit Date Idea</h1>
+
+<div class="container">
+  <form method="POST" action="{{ url_for('edit_date', date_id=date.id) }}">
+    <div class="row">
+      <div class="col-6">
+        <label for="name" class="form-label">Date Name:</label>
+        <input
+          name="name"
+          id="name"
+          class="form-control"
+          aria-describedby="#"
+          required
+          type="text"
+          value="{{ date.name }}"
+        />
+      </div>
+      <div class="col-2">
+        <div class="form-check form-switch">
+          <input type="hidden" name="is_dog" value="no" />
+          <label for="is_dog" class="form-label">With Dogs?:</label>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="is_dog"
+            value="yes"
+            name="is_dog"
+            {%
+            if
+            date.is_dog
+            %}checked{%
+            endif
+            %}
+          />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-check form-switch">
+          <input type="hidden" name="is_indoor" value="no" />
+          <label for="is_indoor" class="form-label">Will It Be Indoors?:</label>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="is_indoor"
+            name="is_indoor"
+            value="yes"
+            {%
+            if
+            date.is_indoor
+            %}checked{%
+            endif
+            %}
+          />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-check form-switch">
+          <input type="hidden" name="is_reservation" value="no" />
+          <label for="is_reservation" class="form-label"
+            >Reservation Needed?:</label
+          >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="is_reservation"
+            name="is_reservation"
+            value="yes"
+            {%
+            if
+            date.is_reservation
+            %}checked{%
+            endif
+            %}
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 mx-auto">
+        <!-- Time Dropdown -->
+        <label for="is_time" class="form-label">Time?:</label>
+        <select
+          name="is_time"
+          id="is_time"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Time Of Day</option>
+          {% for time in time_options %}
+          <option value="{{ time.name }}">{{ time.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-12 col-md-6 mx-auto">
+        <!-- Budget Dropdown -->
+        <label for="is_budget" class="form-label">Budget?:</label>
+        <select
+          name="is_budget"
+          id="is_budget"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Budget Needed</option>
+          {% for budget in budget_options %}
+          <option value="{{ budget.name }}">{{ budget.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 mx-auto">
+        <!-- Location Dropdown -->
+        <label for="is_location" class="form-label">Location?:</label>
+        <select
+          name="is_location"
+          id="is_location"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Date Location</option>
+          {% for location in location_options %}
+          <option value="{{ location.name }}">{{ location.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-12 col-md-6">
+        <!-- Activity Dropdown -->
+        <label for="is_activity" class="form-label">Activity?:</label>
+        <select
+          name="is_activity"
+          id="is_activity"
+          class="form-control form-select"
+          aria-describedby="#"
+          required
+        >
+          <option value="" selected disabled>Select Activity Level</option>
+          {% for activity in activity_options %}
+          <option value="{{ activity.name }}">{{ activity.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10">
+        <label for="notes" class="form-label">Notes:</label>
+        <textarea id="notes" name="notes" class="form-control"></textarea>
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

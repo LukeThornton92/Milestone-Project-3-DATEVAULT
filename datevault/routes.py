@@ -268,10 +268,12 @@ def view_all():
     return render_template("view_all.html", all_dates=all_dates)
 
 
-@app.route("/edit_date")
-def edit_date():
-    return redirect(url_for("home"))
+@app.route("/edit_date/<int:date_id>", methods=["GET", "POST"])
+def edit_date(date_id):
 
-@app.route("/delete_date")
-def delete_date():
+    date = Date.query.get_or_404(date_id)
+    return render_template("edit_date.html", time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions, date=date)
+
+@app.route("/delete_date/<int:date_id>")
+def delete_date(date_id):
     return redirect(url_for("home"))
