@@ -186,7 +186,7 @@ def new_idea():
     
     return render_template("new_idea.html", time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions)
 
-@app.route("/pick_a_date",  methods=['GET', 'POST'])
+@app.route("/pick_a_date",  methods=["GET", "POST"])
 def pick_a_date():
     '''
     Creates the page to select a random date.
@@ -206,6 +206,9 @@ def pick_a_date():
         is_dog = request.form.get("is_dog") == "yes"
         is_reservation = request.form.get("is_reservation") == "yes"
         is_indoor = request.form.get("is_indoor") == "yes"
+
+        # Debugging, booleans only return False
+        print(f"is_dog: {is_dog}, is_reservation: {is_reservation}, is_indoor: {is_indoor}")
 
         query = Date.query # Builds query
 
@@ -227,7 +230,8 @@ def pick_a_date():
             filters.append(Date.is_indoor == True)
         # Final line of query, unpacks list and adds all filters to query
         if filters:
-            query = query.filter(*filter)
+            query = query.filter(*filters)
+
         result = query.all()
 
         print(filters)
@@ -242,3 +246,10 @@ def pick_a_date():
         random_date = query.order_by(func.random()).first()
 
     return render_template("pick_a_date.html", no_date_check=no_date_check,  time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions) # no_date_check is passed to the html so jinja works!
+
+@app.route("/view_all")
+def view_all():
+    '''
+    displays all dates, best way of editing and deleting saved dates 
+    '''
+    return render_template("view_all.html")
