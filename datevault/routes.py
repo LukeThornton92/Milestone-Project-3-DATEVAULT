@@ -271,7 +271,28 @@ def view_all():
 @app.route("/edit_date/<int:date_id>", methods=["GET", "POST"])
 def edit_date(date_id):
 
-    date = Date.query.get_or_404(date_id)
+    date = Date.query.get_or_404(date_id) #finds record 
+
+    # time_options = [(time.name, time.value) for time in TimeOptions]
+
+    if request.method == "POST":
+        # Update all the fields with new form data
+        date.date_name = request.form.get("date_name")
+        date.is_time = request.form.get("is_time")
+        date.is_budget = request.form.get("is_budget")
+        date.is_location = request.form.get("is_location")
+        date.is_activity = request.form.get("is_activity")
+        date.is_dog = request.form.get("is_dog") == "yes"
+        date.is_reservation = request.form.get("is_reservation") == "yes"
+        date.is_indoor = request.form.get("is_indoor") == "yes"
+        date.notes = request.form.get("notes")
+
+        # Update db
+        db.session.commit()
+
+        flash("Date idea updated successfully!", "success")
+        return redirect(url_for("view_all"))
+
     return render_template("edit_date.html", time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions, date=date)
 
 @app.route("/delete_date/<int:date_id>")
