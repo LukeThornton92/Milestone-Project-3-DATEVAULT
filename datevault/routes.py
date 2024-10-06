@@ -297,4 +297,14 @@ def edit_date(date_id):
 
 @app.route("/delete_date/<int:date_id>")
 def delete_date(date_id):
+    date = Date.query.get_or_404(date_id) #finds record 
+    db.session.delete(date)
+    db.session.commit()
+    flash("Date idea deleted successfully!", "success")
+    return redirect(url_for("view_all"))
+
+'''
+@app.route("/delete_user/<int:date_id>")
+def delete_user(date_id):
     return redirect(url_for("home"))
+'''
