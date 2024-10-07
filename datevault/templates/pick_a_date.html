@@ -4,7 +4,6 @@
 {% if no_date_check is none %}
 <p>No dates available in the vault yet!</p>
 {% else %}
-
 <div class="container">
   <form method="POST" action="{{ url_for('pick_a_date') }}">
     <div class="row">
@@ -131,4 +130,24 @@
     </div>
   </form>
 </div>
-{% endif %} {% endblock %}
+{% if random_date %}
+<h2>Your Random Date:</h2>
+<div>
+  <p><strong>Name:</strong> {{ random_date.name }}</p>
+  <p><strong>Activity:</strong> {{ random_date.is_activity }}</p>
+  <p><strong>Location:</strong> {{ random_date.is_location }}</p>
+  <p><strong>Budget:</strong> {{ random_date.is_budget }}</p>
+  <p><strong>Time:</strong> {{ random_date.is_time }}</p>
+  <p>
+    <strong>Dog-friendly:</strong> {{ 'Yes' if random_date.is_dog else 'No' }}
+  </p>
+  <p>
+    <strong>Reservation required:</strong> {{ 'Yes' if
+    random_date.is_reservation else 'No' }}
+  </p>
+  <p>
+    <strong>Indoor activity:</strong> {{ 'Yes' if random_date.is_indoor else
+    'No' }}
+  </p>
+</div>
+{% endif %} {% endif %} {% endblock %}

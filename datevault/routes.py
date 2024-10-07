@@ -247,9 +247,8 @@ def pick_a_date():
             flash("No dates found matching your criteria!", "error")
         else:
             random_date = query.order_by(func.random()).first()
-            return redirect(url_for('pick_a_date'))
 
-    return render_template("pick_a_date.html", no_date_check=no_date_check,  time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions) # no_date_check is passed to the html so jinja works!
+    return render_template("pick_a_date.html", no_date_check=no_date_check,  time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions, random_date=random_date) # no_date_check is passed to the html so jinja works!
 
 @app.route("/view_all", methods =["GET", "POST"])
 def view_all():
