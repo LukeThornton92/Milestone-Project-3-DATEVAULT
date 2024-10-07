@@ -308,8 +308,17 @@ def delete_date(date_id):
     return redirect(url_for("view_all"))
 
 '''
-@app.route("/delete_user/<int:date_id>")
-def delete_user(date_id):
+@app.route("/delete_user/<int:user_id>", methods=["POST"])
+def delete_user(user_id):
+    user_to_delete = User.query.get(user_id)
+
+    if user_to_delete:
+        db.session.delete(user_to_delete)
+        db.session.commit()
+        flash("User deleted successfully!", "success")
+    else:
+        flash("User not found!", "error")
+
     return redirect(url_for("home"))
 '''
 
