@@ -131,6 +131,7 @@ def new_idea():
     Creates the new date idea page
     '''
     if request.method == "POST":
+        print(request.form)
         name=request.form.get("name")
         is_time=request.form.get("is_time")
         # Checks to see if valid entry, protects database. Also converts is_time to a string.
@@ -160,10 +161,10 @@ def new_idea():
         else:
             flash("Invalid Activity Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
-        is_dog = request.form.get("is_dog") == "yes"
+        is_dog = "is_dog" in request.form
         print(f"Is Dog: {is_dog}")  # Debugging line
-        is_reservation = request.form.get("is_reservation") == "yes"
-        is_indoor = request.form.get("is_indoor") == "yes"
+        is_reservation = "is_reservation" in request.form
+        is_indoor = "is_indoor" in request.form
         notes=request.form.get("notes")
 
         # Creates a new_date object
