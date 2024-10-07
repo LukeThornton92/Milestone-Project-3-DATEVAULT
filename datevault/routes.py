@@ -161,7 +161,7 @@ def new_idea():
         else:
             flash("Invalid Activity Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
-        is_dog = "is_dog" in request.form
+        is_dog = "is_dog" in request.form # Returns True if checked, wont return anything if not which equals False
         print(f"Is Dog: {is_dog}")  # Debugging line
         is_reservation = "is_reservation" in request.form
         is_indoor = "is_indoor" in request.form
