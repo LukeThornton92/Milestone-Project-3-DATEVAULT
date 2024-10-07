@@ -79,6 +79,7 @@
           required
         >
           <option value="" selected disabled>Select Budget Needed</option>
+          <option value="Any">Any</option>
           {% for budget in budget_options %}
           <option value="{{ budget.name }}">{{ budget.value }}</option>
           {% endfor %}
@@ -98,6 +99,7 @@
           required
         >
           <option value="" selected disabled>Select Date Location</option>
+          <option value="Any">Any</option>
           {% for location in location_options %}
           <option value="{{ location.name }}">{{ location.value }}</option>
           {% endfor %}
@@ -114,6 +116,7 @@
           required
         >
           <option value="" selected disabled>Select Activity Level</option>
+          <option value="Any">Any</option>
           {% for activity in activity_options %}
           <option value="{{ activity.name }}">{{ activity.value }}</option>
           {% endfor %}

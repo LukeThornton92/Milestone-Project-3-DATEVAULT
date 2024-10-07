@@ -153,7 +153,6 @@ def new_idea():
         else:
             flash("Invalid Location Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
-        is_dog = request.form.get("is_dog") == "yes"
         is_activity=request.form.get("is_activity")
         # Checks to see if valid entry, protects database. Also converts is_activity to a string.
         if is_activity in ActivityOptions.__members__:
@@ -161,6 +160,8 @@ def new_idea():
         else:
             flash("Invalid Activity Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
+        is_dog = request.form.get("is_dog") == "yes"
+        print(f"Is Dog: {is_dog}")  # Debugging line
         is_reservation = request.form.get("is_reservation") == "yes"
         is_indoor = request.form.get("is_indoor") == "yes"
         notes=request.form.get("notes")
@@ -197,6 +198,8 @@ def pick_a_date():
     print(user_id) #debugging
     no_date_check = Date.query.filter_by(owner_id=user_id).first()
     print(no_date_check)
+
+    random_date = None
 
     if request.method == "POST":
         is_time = request.form.get("is_time")
@@ -241,9 +244,9 @@ def pick_a_date():
 
         if result_count == 0:
             flash("No dates found matching your criteria!", "error")
+        else:
+            random_date = query.order_by(func.random()).first()
             return redirect(url_for('pick_a_date'))
-        
-        random_date = query.order_by(func.random()).first()
 
     return render_template("pick_a_date.html", no_date_check=no_date_check,  time_options=TimeOptions, budget_options=BudgetOptions, location_options=LocationOptions, activity_options=ActivityOptions) # no_date_check is passed to the html so jinja works!
 
