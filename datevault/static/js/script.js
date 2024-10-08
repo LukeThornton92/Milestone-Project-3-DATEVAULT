@@ -7,3 +7,9 @@ function confirmDeletion(event) {
     event.preventDefault();
   }
 }
+
+function confirmLogOut(event) {
+  if (!confirm("Are you sure you want to Logout?")) {
+    event.preventDefault();
+  }
+}

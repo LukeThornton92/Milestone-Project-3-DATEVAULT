@@ -306,20 +306,31 @@ def delete_date(date_id):
     flash("Date idea deleted successfully!", "success")
     return redirect(url_for("view_all"))
 
-'''
-@app.route("/delete_user/<int:user_id>", methods=["POST"])
-def delete_user(user_id):
-    user_to_delete = User.query.get(user_id)
+@app.route("/delete_user_confirm")
+def delete_user_confirm():
+    """Displays a confirmation page before deleting the user."""
+    user_id = session.get('user_id')
+    
+    if user_id is None:
+        # Redirect to login if user_id is not found
+        flash("You need to be logged in to delete your account.", "danger")
+        return redirect(url_for("login"))
 
-    if user_to_delete:
-        db.session.delete(user_to_delete)
-        db.session.commit()
-        flash("User deleted successfully!", "success")
-    else:
-        flash("User not found!", "error")
+    return render_template("delete_user.html", user_id=user_id)
 
+@app.route("/confirm_delete_user", methods=["POST"])
+def confirm_delete_user():
+    """Deletes the user after confirmation."""
+    user_id = session.get('user_id')
+    user_to_delete = Login.query.get_or_404(user_id)
+    # Clear the session
+    session.clear()
+    # Delete the user from the database
+    db.session.delete(user_to_delete)
+    db.session.commit()
+    
+    flash("User deleted successfully!", "success")
     return redirect(url_for("home"))
-'''
 
 '''
 @app.route('/your_saved_dates')

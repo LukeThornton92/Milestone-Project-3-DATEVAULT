@@ -1,3 +1,8 @@
 {% extends "base.html" %} {% block content %}
-<h1>New Date Idea</h1>
+<h1>Confirm Deletion</h1>
+<p>Are you sure you want to delete your account?</p>
+<form method="POST" action="{{ url_for('confirm_delete_user') }}">
+  <button type="submit">Yes, delete my account</button>
+  <a href="{{ url_for('home') }}">Cancel</a>
+</form>
 {% endblock %}
