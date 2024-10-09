@@ -5,6 +5,7 @@ body {
   height: 100vh;
   margin: 0;
   color: #ede7d7;
+  overflow: hidden;
 }
 
 h1 {
@@ -13,6 +14,8 @@ h1 {
   font-family: "Calistoga", "Arial Narrow", Arial, sans-serif;
 }
 
+/* Vault door animation on home screen */
+
 .vault {
   align-items: center;
 }
@@ -20,7 +23,7 @@ h1 {
 .form-text {
   color: #ede7d7;
 }
-/* Vault door animation on home screen */
+
 .vault-door-outer {
   position: relative;
   width: 500px;
