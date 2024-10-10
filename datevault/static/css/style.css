@@ -14,6 +14,26 @@ h1 {
   font-family: "Calistoga", "Arial Narrow", Arial, sans-serif;
 }
 
+.navbar {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0
+  ) !important; /* Change to your desired background color */
+}
+
+.nav-link {
+  color: #ede7d7 !important; /* Change to your desired hover color */
+}
+
+.nav-link:hover {
+  color: #ffc107 !important; /* Change to your desired hover color */
+}
+
+.navbar-toggler {
+  border-color: #ede7ed; /* Optional: Change the border color of the toggler */
+}
 /* Vault door animation on home screen */
 
 .vault {
