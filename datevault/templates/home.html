@@ -1,8 +1,10 @@
 {% extends "base.html" %} {% block content %}
 <h1>Home Page</h1>
 <div>
-  {% if session.get('user_name') %} Welcome, {{ session.user_name }}! {% else %}
-  Welcome, guest! {% endif %}
+  <h2>
+    {% if session.get('user_name') %} Welcome, {{ session.user_name }}! {% else
+    %} Welcome, guest! {% endif %}
+  </h2>
 </div>
 <div class="vault-door-outer">
   <div class="vault-door-inner">
