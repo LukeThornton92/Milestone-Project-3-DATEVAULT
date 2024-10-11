@@ -14,6 +14,8 @@ h1 {
   font-family: "Calistoga", "Arial Narrow", Arial, sans-serif;
 }
 
+/* Navbar */
+
 .navbar {
   background-color: rgba(
     0,
@@ -24,26 +26,30 @@ h1 {
 }
 
 .nav-link {
-  color: #ede7d7 !important; /* Change to your desired hover color */
+  color: #ede7d7 !important;
 }
 
-.nav-link:hover {
-  color: #ffc107 !important; /* Change to your desired hover color */
+.color-link:hover {
+  color: #ffc107 !important;
+}
+
+.color-link-delete:hover {
+  color: #ff0f07f2 !important;
 }
 
 .navbar-toggler {
-  border-color: #ede7ed; /* Optional: Change the border color of the toggler */
-}
-/* Vault door animation on home screen */
-
-.vault {
-  align-items: center;
+  border-color: #ede7ed; /* Border colour */
 }
 
 .form-text {
   color: #ede7d7;
 }
+/* Footer */
 
+ul {
+  list-style: none;
+}
+/* Vault door animation on home screen */
 .vault-door-outer {
   position: relative;
   width: 500px;
@@ -180,7 +186,6 @@ h1 {
     }
   }
 }
-
 /* New Idea Page */
 
 textarea {
