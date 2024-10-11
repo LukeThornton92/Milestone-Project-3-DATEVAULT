@@ -4,7 +4,7 @@
 <div class="container">
   <form method="POST" action="{{ url_for('new_idea') }}">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <label for="name" class="form-label">Date Name:</label>
         <input
           name="name"
@@ -15,7 +15,7 @@
           type="text"
         />
       </div>
-      <div class="col-2">
+      <div class="col-12 col-md-2 mt-3 mt-md-0">
         <div class="form-check form-switch">
           <label for="is_dog" class="form-check-label">With Dogs?:</label>
           <input
@@ -27,7 +27,7 @@
           />
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-12 col-md-2 mt-3 mt-md-0">
         <div class="form-check form-switch">
           <label for="is_indoor" class="form-check-label"
             >Will It Be Indoors?:</label
@@ -41,7 +41,7 @@
           />
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-12 col-md-2 mt-3 mt-md-0">
         <div class="form-check form-switch">
           <label for="is_reservation" class="form-check-label"
             >Reservation Needed?:</label
@@ -128,12 +128,14 @@
     </div>
 
     <div class="row">
-      <div class="col-10">
+      <div class="col-12 col-md-10">
         <label for="notes" class="form-label">Notes:</label>
         <textarea id="notes" name="notes" class="form-control"></textarea>
       </div>
-      <div class="col-2 d-flex align-items-center justify-content-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <div
+        class="col-12 col-md-2 d-flex align-items-center justify-content-center mt-3 mt-md-0"
+      >
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
       </div>
     </div>
   </form>
