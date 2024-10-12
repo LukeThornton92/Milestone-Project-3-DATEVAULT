@@ -17,6 +17,9 @@ def login():
     '''
     Creates the login page and searches the database for email, then checks the password.
     '''
+    if 'user_id' in session:
+        return redirect(url_for('home'))
+
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
@@ -55,12 +58,21 @@ def signup():
     Creates the signup page and updates database with signup info. Reviews if user
     is already in database, also hashes password
     '''
+
+    if 'user_id' in session:
+        return redirect(url_for('home'))
+
     if request.method == "POST":
         print("Signup form submitted")
         # Gets info from form
         user_name=request.form.get("user_name")
         password=request.form.get("SignupPassword")
         email=request.form.get("email")
+        confirm_password=request.form.get("ConfirmSignupPassword")
+
+        if password != confirm_password:
+            flash("Passwords didn't match! Please try again.", "warning")
+            return redirect(url_for("signup"))
 
         # Does this user exist? 
         existing_user = Login.query.filter(or_(Login.email == email,Login.partner_email == email)).first()
@@ -130,6 +142,10 @@ def new_idea():
     '''
     Creates the new date idea page
     '''
+
+    if 'user_id' not in session:
+        return redirect(url_for('home'))
+    
     if request.method == "POST":
         print(request.form)
         name=request.form.get("name")
@@ -194,6 +210,9 @@ def pick_a_date():
     Creates the page to select a random date.
     '''
 
+    if 'user_id' not in session:
+        return redirect(url_for('home'))
+
     # Any dates in the table? Jinja2 uses this.
     user_id = session.get('user_id')
     print(user_id) #debugging
@@ -255,6 +274,10 @@ def view_all():
     '''
     displays all dates, best way of editing and deleting saved dates 
     '''
+
+    if 'user_id' not in session:
+        return redirect(url_for('home'))
+    
     user_id=session.get('user_id')
         
     if not user_id:
@@ -273,6 +296,9 @@ def view_all():
 
 @app.route("/edit_date/<int:date_id>", methods=["GET", "POST"])
 def edit_date(date_id):
+
+    if 'user_id' not in session:
+        return redirect(url_for('home'))
 
     date = Date.query.get_or_404(date_id) #finds record 
 
@@ -309,6 +335,10 @@ def delete_date(date_id):
 @app.route("/delete_user_confirm")
 def delete_user_confirm():
     """Displays a confirmation page before deleting the user."""
+
+    if 'user_id' not in session:
+        return redirect(url_for('home'))
+    
     user_id = session.get('user_id')
     
     if user_id is None:
