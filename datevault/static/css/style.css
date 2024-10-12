@@ -210,7 +210,12 @@ textarea {
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
-  background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
+}
+
+@media (max-width: 768px) {
+  #notes {
+    height: 100px;
+  }
 }
