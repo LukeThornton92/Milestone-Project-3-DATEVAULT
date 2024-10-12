@@ -21,7 +21,7 @@ def login():
         return redirect(url_for('home'))
 
     if request.method == "POST":
-        email = request.form.get("email")
+        email = request.form.get("email").lower()
         password = request.form.get("password")
 
         # Check for main account
@@ -67,8 +67,14 @@ def signup():
         # Gets info from form
         user_name=request.form.get("user_name")
         password=request.form.get("SignupPassword")
-        email=request.form.get("email")
+        email=request.form.get("email").lower()
         confirm_password=request.form.get("ConfirmSignupPassword")
+
+        # User name already taken? 
+        existing_username = Login.query.filter(Login.user_name == user_name).first()
+        if existing_username:
+            flash("Username is already taken. Please try another!","warning")
+            return redirect(url_for("signup"))            
 
         if password != confirm_password:
             flash("Passwords didn't match! Please try again.", "warning")
@@ -77,7 +83,7 @@ def signup():
         # Does this user exist? 
         existing_user = Login.query.filter(or_(Login.email == email,Login.partner_email == email)).first()
         if existing_user:
-            flash("Email is alerady registered. Please log in or use another email.","warning")
+            flash("Email is already registered. Please log in or use another email.","warning")
             return redirect(url_for("signup"))
         signup = Login(
             # Creates a new user
@@ -106,7 +112,7 @@ def add_partner():
     if request.method == "POST":
         partner_user_name = request.form.get("partner_user_name")
         partner_password = request.form.get("partner_SignupPassword")
-        partner_email = request.form.get("partner_email")
+        partner_email = request.form.get("partner_email").lower()
 
         if not partner_user_name or not partner_password or not partner_email:
             flash("Please fill out all partner details.", "warning")
