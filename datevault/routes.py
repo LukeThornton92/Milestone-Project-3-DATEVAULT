@@ -113,7 +113,7 @@ def add_partner():
             session['partner_user_name'] = partner_user_name
 
             print("Partner info added")
-            return redirect(url_for("login"))
+            return redirect(url_for("home"))
     return render_template("add_partner.html")
 
 @app.route("/logout")
