@@ -24,6 +24,10 @@ def login():
         email = request.form.get("email").lower()
         password = request.form.get("password")
 
+        if not email or not password:
+            flash("Email or password cannot be blank.", "warning")
+            return redirect(url_for("login"))
+
         # Check for main account
         user = Login.query.filter_by(email=email).first()
         # Check_password checks hash password 
@@ -65,10 +69,18 @@ def signup():
     if request.method == "POST":
         print("Signup form submitted")
         # Gets info from form
-        user_name=request.form.get("user_name")
+        user_name=request.form.get("user_name").strip()
         password=request.form.get("SignupPassword")
-        email=request.form.get("email").lower()
+        email=request.form.get("email").lower().strip()
         confirm_password=request.form.get("ConfirmSignupPassword")
+
+        if not email or not password or not user_name or not confirm_password:
+            flash("Please ensure all fields are populated", "warning")
+            return redirect(url_for("signup"))
+
+        if not email or not password:
+            flash("Email and password cannot be blank.", "warning")
+            return redirect(url_for("login"))
 
         # User name already taken? 
         existing_username = Login.query.filter(Login.user_name == user_name).first()
@@ -110,8 +122,8 @@ def add_partner():
     Creates the signup page for partner and updates database with signup info.
     '''
     if request.method == "POST":
-        partner_user_name = request.form.get("partner_user_name")
-        partner_password = request.form.get("partner_SignupPassword")
+        partner_user_name = request.form.get("partner_user_name").strip()
+        partner_password = request.form.get("partner_SignupPassword").strip()
         partner_email = request.form.get("partner_email").lower()
 
         if not partner_user_name or not partner_password or not partner_email:
