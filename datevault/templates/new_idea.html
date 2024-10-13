@@ -4,20 +4,20 @@
 <div class="container">
   <form method="POST" action="{{ url_for('new_idea') }}">
     <div class="row">
-      <div class="col-12 col-md-6 pt-3">
+      <div class="col-12 pt-3">
         <label for="name" class="form-label">Date Name:</label>
         <input
           name="name"
           id="name"
           class="form-control"
-          aria-describedby="#"
           required
           type="text"
         />
       </div>
-      <div class="col-12 col-md-2 mt-3 mt-md-0 pt-3">
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 col-md-4 pt-3">
         <div class="form-check form-switch">
-          <label for="is_dog" class="form-check-label">With Dogs?:</label>
           <input
             class="form-check-input"
             type="checkbox"
@@ -25,13 +25,11 @@
             value="yes"
             name="is_dog"
           />
+          <label for="is_dog" class="form-check-label">With Dogs?</label>
         </div>
       </div>
-      <div class="col-12 col-md-2 mt-3 mt-md-0 pt-3">
+      <div class="col-12 col-md-4 pt-3">
         <div class="form-check form-switch">
-          <label for="is_indoor" class="form-check-label"
-            >Will It Be Indoors?:</label
-          >
           <input
             class="form-check-input"
             type="checkbox"
@@ -39,13 +37,13 @@
             name="is_indoor"
             value="yes"
           />
+          <label for="is_indoor" class="form-check-label"
+            >Will It Be Indoors?</label
+          >
         </div>
       </div>
-      <div class="col-12 col-md-2 mt-3 mt-md-0 pt-3">
+      <div class="col-12 col-md-4 pt-3">
         <div class="form-check form-switch">
-          <label for="is_reservation" class="form-check-label"
-            >Reservation Needed?:</label
-          >
           <input
             class="form-check-input"
             type="checkbox"
@@ -53,6 +51,9 @@
             name="is_reservation"
             value="yes"
           />
+          <label for="is_reservation" class="form-check-label"
+            >Reservation Needed?</label
+          >
         </div>
       </div>
     </div>
@@ -60,7 +61,7 @@
     <div class="row">
       <div class="col-12 col-md-6 mx-auto pt-3">
         <!-- Time Dropdown -->
-        <label for="is_time" class="form-label">Time?:</label>
+        <label for="is_time" class="form-label">Time:</label>
         <select
           name="is_time"
           id="is_time"
@@ -76,7 +77,7 @@
       </div>
       <div class="col-12 col-md-6 mx-auto pt-3">
         <!-- Budget Dropdown -->
-        <label for="is_budget" class="form-label">Budget?:</label>
+        <label for="is_budget" class="form-label">Budget:</label>
         <select
           name="is_budget"
           id="is_budget"
@@ -95,7 +96,7 @@
     <div class="row">
       <div class="col-12 col-md-6 mx-auto pt-3">
         <!-- Location Dropdown -->
-        <label for="is_location" class="form-label">Location?:</label>
+        <label for="is_location" class="form-label">Location:</label>
         <select
           name="is_location"
           id="is_location"
@@ -111,7 +112,7 @@
       </div>
       <div class="col-12 col-md-6 pt-3">
         <!-- Activity Dropdown -->
-        <label for="is_activity" class="form-label">Activity?:</label>
+        <label for="is_activity" class="form-label">Activity:</label>
         <select
           name="is_activity"
           id="is_activity"

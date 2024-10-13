@@ -2,6 +2,7 @@ body {
   background-image: url(../images/Background_1.jpg);
   background-size: cover;
   background-position: center;
+  background-color: #023047;
   height: 100vh;
   margin: 0;
   color: #ede7d7;
@@ -10,33 +11,39 @@ body {
   background-attachment: fixed;
 }
 
+/* Fonts and text */
 p {
   font-size: medium;
 }
 h1 {
-  font-size: 8vw;
-  text-align: center;
-  font-family: "Calistoga", "Arial Narrow", Arial, sans-serif;
-}
-
-h2 {
   font-size: 6vw;
   text-align: center;
   font-family: "Calistoga", "Arial Narrow", Arial, sans-serif;
 }
 
-h3 {
-  font-size: 3vw;
+h2 {
+  font-size: 4vw;
   text-align: center;
-  font-family: "Istok Web", "Arial Narrow", Arial, sans-serif;
+  font-family: "Calistoga", "Arial Narrow", Arial, sans-serif;
 }
 
-h5 {
+h3 {
   font-size: 2vw;
   text-align: center;
   font-family: "Istok Web", "Arial Narrow", Arial, sans-serif;
 }
 
+h5 {
+  font-size: 1.5vw;
+  text-align: center;
+  font-family: "Istok Web", "Arial Narrow", Arial, sans-serif;
+}
+
+@media (max-width: 1024px) {
+  h5 {
+    font-size: large;
+  }
+}
 input,
 textarea,
 select {
@@ -96,6 +103,7 @@ select {
 
 .footer-list {
   padding-left: 0;
+  font-size: 200%;
 }
 ul {
   list-style: none;
@@ -130,6 +138,16 @@ textarea {
 @media (max-width: 768px) {
   #notes {
     height: 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .switch-container {
+    width: 33.33%; /* Each switch will take one-third of the width */
+    display: inline-block; /* Makes them inline on larger screens */
+  }
+  .switch-break {
+    width: 100%; /* Ensures that each switch breaks to a new line */
   }
 }
 
