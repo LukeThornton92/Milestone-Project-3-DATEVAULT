@@ -1,16 +1,15 @@
 {% extends "base.html" %} {% block content %}
 <h1>Confirm Deletion</h1>
-<div class="container">
-  <div class="row" style="height: 100vh">
-    <div class="col d-flex align-items-center justify-content-center">
-      <p>Are you sure you want to delete your account?</p>
-      <form method="POST" action="{{ url_for('confirm_delete_user') }}">
-        <button type="submit" class="btn btn-danger">
-          Yes, delete my account
-        </button>
-        <a href="{{ url_for('home') }}">Cancel</a>
-      </form>
-    </div>
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="text-center">
+    <p>Are you sure you want to delete your account?</p>
+    <!-- Message on the first line -->
+    <form method="POST" action="{{ url_for('confirm_delete_user') }}">
+      <button type="submit" class="btn btn-danger mt-3">
+        <!-- Add margin-top for spacing -->
+        Yes, delete my account
+      </button>
+    </form>
   </div>
 </div>
 {% endblock %}

@@ -389,3 +389,9 @@ def your_saved_dates():
     all_dates = Date.query.filter_by(owner_id=session.get('user_id')).paginate(page=page, per_page=per_page)  # Paginate the query for the logged-in user
     return render_template('your_saved_dates.html', all_dates=all_dates)  # Ensure your template name is correct
 
+@app.route("/404")
+def home():
+    '''
+    Creates the 404 page
+    '''
+    return render_template("404.html")
