@@ -94,6 +94,9 @@ select {
   display: inline-block;
 }
 
+.footer-list {
+  padding-left: 0;
+}
 ul {
   list-style: none;
 }
