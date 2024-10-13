@@ -390,7 +390,7 @@ def your_saved_dates():
     return render_template('your_saved_dates.html', all_dates=all_dates)  # Ensure your template name is correct
 
 @app.route("/404")
-def home():
+def not_found():
     '''
     Creates the 404 page
     '''
