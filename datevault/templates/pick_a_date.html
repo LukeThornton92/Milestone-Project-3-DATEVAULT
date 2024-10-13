@@ -5,12 +5,13 @@
 <p>No dates available in the vault yet!</p>
 {% else %}
 <div class="container">
-  <form method="POST" action="{{ url_for('pick_a_date') }}">
+  <!-- Filter Form -->
+  <form method="POST" action="{{ url_for('pick_a_date') }}" id="filter-form">
     <div class="row">
       <div class="col">
         <div class="form-check form-switch">
           <input type="hidden" name="is_dog" value="no" />
-          <label for="is_dog" class="form-label">With Dogs?:</label>
+          <label for="is_dog" class="form-label">Dog-friendly?:</label>
           <input
             class="form-check-input"
             type="checkbox"
@@ -52,14 +53,8 @@
 
     <div class="row">
       <div class="col-12 col-md-6 mx-auto">
-        <!-- Time Dropdown -->
-        <label for="is_time" class="form-label">Time?:</label>
-        <select
-          name="is_time"
-          id="is_time"
-          class="form-control form-select"
-          aria-describedby="#"
-        >
+        <label for="is_time" class="form-label">Time of day?:</label>
+        <select name="is_time" id="is_time" class="form-control form-select">
           <option value="" selected disabled>Select Time Of Day</option>
           {% for time in time_options %}
           <option value="{{ time.name }}">{{ time.value }}</option>
@@ -67,13 +62,11 @@
         </select>
       </div>
       <div class="col-12 col-md-6 mx-auto">
-        <!-- Budget Dropdown -->
         <label for="is_budget" class="form-label">Budget?:</label>
         <select
           name="is_budget"
           id="is_budget"
           class="form-control form-select"
-          aria-describedby="#"
         >
           <option value="" selected disabled>Select Budget Needed</option>
           <option value="Any">Any</option>
@@ -86,13 +79,11 @@
 
     <div class="row">
       <div class="col-12 col-md-6 mx-auto">
-        <!-- Location Dropdown -->
         <label for="is_location" class="form-label">Location?:</label>
         <select
           name="is_location"
           id="is_location"
           class="form-control form-select"
-          aria-describedby="#"
         >
           <option value="" selected disabled>Select Date Location</option>
           <option value="Any">Any</option>
@@ -102,13 +93,11 @@
         </select>
       </div>
       <div class="col-12 col-md-6">
-        <!-- Activity Dropdown -->
-        <label for="is_activity" class="form-label">Activity?:</label>
+        <label for="is_activity" class="form-label">Activity level?:</label>
         <select
           name="is_activity"
           id="is_activity"
           class="form-control form-select"
-          aria-describedby="#"
         >
           <option value="" selected disabled>Select Activity Level</option>
           <option value="Any">Any</option>
@@ -126,24 +115,49 @@
     </div>
   </form>
 </div>
+
+<!-- Random Date Card -->
 {% if random_date %}
-<h2>Your Random Date:</h2>
-<div>
-  <p><strong>Name:</strong> {{ random_date.name }}</p>
-  <p><strong>Activity:</strong> {{ random_date.is_activity }}</p>
-  <p><strong>Location:</strong> {{ random_date.is_location }}</p>
-  <p><strong>Budget:</strong> {{ random_date.is_budget }}</p>
-  <p><strong>Time:</strong> {{ random_date.is_time }}</p>
-  <p>
-    <strong>Dog-friendly:</strong> {{ 'Yes' if random_date.is_dog else 'No' }}
-  </p>
-  <p>
-    <strong>Reservation required:</strong> {{ 'Yes' if
-    random_date.is_reservation else 'No' }}
-  </p>
-  <p>
-    <strong>Indoor activity:</strong> {{ 'Yes' if random_date.is_indoor else
-    'No' }}
-  </p>
+<div class="card mt-4" id="random-date">
+  <div class="card-header bg-primary text-white">
+    <h2 class="mb-0">Your Random Date:</h2>
+  </div>
+  <div class="card-body text-center">
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Name:</strong> {{ random_date.name }}</p>
+        <p><strong>Activity:</strong> {{ random_date.is_activity }}</p>
+        <p><strong>Location:</strong> {{ random_date.is_location }}</p>
+        <p><strong>Budget:</strong> {{ random_date.is_budget }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Time:</strong> {{ random_date.is_time }}</p>
+        <p>
+          <strong>Dog-friendly:</strong> {{ 'Yes' if random_date.is_dog else
+          'No' }}
+        </p>
+        <p>
+          <strong>Reservation required:</strong> {{ 'Yes' if
+          random_date.is_reservation else 'No' }}
+        </p>
+        <p>
+          <strong>Indoor activity:</strong> {{ 'Yes' if random_date.is_indoor
+          else 'No' }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col d-flex justify-content-center">
+      <!-- Re-Roll button -->
+      <button class="btn btn-primary" onclick="reloadPage()">Re-Roll!</button>
+    </div>
+    <div class="col d-flex justify-content-center">
+      <button class="btn btn-primary" onclick="window.location.href='{{ url_for('pick_a_date') }}'">
+        Change filters
+      </button>
+    </div>
+    </div>
+  </div>
 </div>
 {% endif %} {% endif %} {% endblock %}

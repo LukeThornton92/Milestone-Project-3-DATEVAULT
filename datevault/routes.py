@@ -273,9 +273,10 @@ def pick_a_date():
         if filters:
             query = query.filter(*filters)
 
+
         result = query.all()
 
-        print(filters)
+        print(filters) 
 
         # Gets count of how many dates match
         result_count = query.count()
@@ -380,11 +381,11 @@ def confirm_delete_user():
     flash("User deleted successfully!", "success")
     return redirect(url_for("home"))
 
-'''
+
 @app.route('/your_saved_dates')
 def your_saved_dates():
     page = request.args.get('page', 1, type=int)  # Get the page number from the query string, default to 1
     per_page = 9  # Display 9 dates per page
     all_dates = Date.query.filter_by(owner_id=session.get('user_id')).paginate(page=page, per_page=per_page)  # Paginate the query for the logged-in user
     return render_template('your_saved_dates.html', all_dates=all_dates)  # Ensure your template name is correct
-'''
+

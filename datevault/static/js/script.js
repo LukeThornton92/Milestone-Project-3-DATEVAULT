@@ -13,3 +13,17 @@ function confirmLogOut(event) {
     event.preventDefault();
   }
 }
+
+// Hides filters in pick_a_date:
+
+document.addEventListener("DOMContentLoaded", function () {
+  var randomDateCard = document.getElementById("random-date");
+  if (randomDateCard) {
+    var filterForm = document.getElementById("filter-form");
+    filterForm.style.display = "none"; // Hide the filter form
+  }
+});
+
+function reloadPage() {
+  location.reload();
+}
