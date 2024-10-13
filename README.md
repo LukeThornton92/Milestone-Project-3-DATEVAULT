@@ -1,131 +1,408 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Connect 4**
 
-Welcome USER_NAME,
+## **Site Overview**
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<img src="" alt="">
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Table of Contents:
 
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+1. [**Site Overview**](#site-overview)
+2. [**Planning stage**](#planning-stage)
+   - [**_Target Audiences_**](#target-audiences)
+   - [**_User Stories_**](#user-stories)
+   - [**_Site Aims_**](#site-aims)
+   - [**_How Will This Be Achieved_**](#how-will-this-be-achieved)
+   - [**_Research_**](#research)
+   - [**_Wireframes_**](#wireframes)
+3. [**Building Stage**](#building-stage)
+   - [**_Colour Scheme_**](#colour-scheme)
+   - [**_Typography_**](#typography)
+4. [**Features**](#features)
+   - [**_Home Page_**](#home-page)
+   - [**_404_**](#404)
+5. [**Future Enhancements**](#future-enhancements)
+6. [**Testing**](#testing)
+   - [**_Validator Testing_**](#validator-testing)
+7. [**Deployment**](#deployment)
+8. [**Credits**](#credits)
+   - [**_Honourable Mentions_**](#honourable-mentions)
+   - [**_General Reference_**](#general-refrence)
+   - [**_Content_**](#content)
+   - [**_Media_**](#media)
 
 ---
 
-Happy coding!
+## **Planning Stage**
+
+### **Target Audiences:**
+
+- x
+- x
+- x
+- x
+
+### **User Stories:**
+
+- x
+- x
+- x
+- x
+
+### **Site Aims:**
+
+- x
+- x
+- x
+- x
+
+### **How Will This Be Achieved:**
+
+- x
+- x
+- x
+- x
+
+### **Research:**
+
+\*\*1.
+
+- x
+- x
+- x
+- x
+
+---
+
+\*\*2.
+
+- x
+- x
+- x
+- x
+
+---
+
+\*\*3.
+
+- x
+- x
+- x
+- x
+
+---
+
+**4. **
+
+- x
+- x
+- x
+- x
+
+---
+
+With these observations I was ready to start designing my wireframes.
+
+### **Wireframes:**
+
+#### **Mobile Wireframes:**
+
+#### **Desktop Wireframes:**
+
+   <details><summary></summary>
+   <img src="" alt="">
+   </details>
+
+---
+
+## **Building Stage**
+
+My goal is to bring an element to a new element to connect 4 that warrants it being in a digital format, my current idea is to implement a 'Tetris' style column clear every time you score a 4 in a row. This would bring another level of tactics to the game as you would need to account for points earned and the consequence of scoring and modifying the board.
+
+I want to build this site focusing on the basics of Connect 4 first, then slowly implementing the things i've highlighted from my research. This way if I run into any issues I can fall back on a solid working game.
+
+### **Colour Scheme And Theme:**
+
+Knowing this site is aimed at children I wanted to focus on a colour scheme that would be lively enough to capture the attention of a younger audience, while also maintaining a nice user experience for all ages. The first thing I wanted to ensure was a visually stimulating and themed background, as my intention was for the theme to be easily customisable to fit a range of potential topics.
+
+My first idea was a ocean theme, but after searching for potential backgrounds online I couldn't find anything that really stuck out, so after review some other potential themes such as forests and beaches I settled on space as it is a personal interest of mine.
+
+After a little hunting and refining my search I found something [perfect](https://www.vecteezy.com/vector-art/1110375-stars-and-planets-in-outer-space), something that would pop with colour against a dark (not black) background and with a drawn aesthetic. From this image I was able to pick out my darker tones but I was still in search of 2 contrasting lighter tones that would complement the game. Connect 4 is classically played with Red tiles and Yellow tiles, so after a little while playing with the varying shades and tones I was able to find 2 that I personally liked and that worked well against the backdrop, completing my colour scheme.
+
+<img src="assets/images/MSP2 Colour pallete.png" alt="Colour palette inspiring site">
+
+### **Typography**
+
+After doing a little research into fonts, I found a useful [article](https://varrojoanna.com/the-easiest-fonts-for-kids-to-read/) talking about children and the fonts they find easiest to read, seeing as this game is aimed at a younger audience I thought it best to ensure that children were the focus when it came to the typography. I chose to use googles 'Andika' after reviewing all the recommendations, I felt this was the best middle ground for young and older players.
+
+Titles use a font weight of 700 for a bigger bolder title, while the rules section uses the standard weight. The buttons use a weight of 600 to give it a little more weight than any paragraphs.
+
+Given limited amount of text I felt Andika was good enough to cover all possible uses, if for some reason it isn't available font family will default to Helvetica and then sans-serif.
+
+- All fonts were sourced from Google fonts, as stated in the credits.
+
+---
+
+## **Features**
+
+Below are some of the features currently within the site.
+
+### **Home Page:**
+
+- The home page is big and bold, Using classic 'connect 4' colours for the text and buttons. After doing my research I really noticed the impact of not having a initial page to welcome the user, allowing them to read the rules before being thrown straight into a game.
+
+<img src="assets/images/MSP2 home page.png" alt="image of the center of the home page">
+
+### **Wallpaper And Back-panel:**
+
+- As mentioned in the colour scheme section above my first job was to find a background that I was really happy with, it took a while and I originally struggled to find something that would be suitable for this site. I didn't want to spend too much time focusing on a background and "lose the momentum" of coding, so at the start I actually used the space background that made my wireframe.
+
+- I liked the idea of a translucent back pack to help lift the content off the back wallpaper, I like this effect a lot as it helps give it a sense of depth. Given how much I liked the background I feel making it see through gave both the lifting effecting while also showing off the wallpaper.
+
+<img src="assets/images/MSP2 full page.png" alt="image of the entire home page">
+
+### **Hiding Pages:**
+
+- After disusing numerous ideas with my mentor, he showed me a trick he likes to implement in his own code. Creating a HTML class and setting the CSS display to this class as "none".
+
+<img src="assets/images/hide css.png" alt="image of .hide css">
+
+- Using JS I am able to implement a simple event listener for a button click which will simply add the class to everything in the selected and then remove it from the page I wish to see. This is good as I am able to easily adapt and change this for future use, if I wanted to add another page I can add the "const" at the top with the correct value and extend the list.
+
+<img src="assets/images/hide JS.png" alt="">
+
+- With the site being a SPA (single page application) this allows for a few things to happen which benefit the site greatly.
+
+  \*First the page and all JS loads in its entirety all before you click into the game, so if for any reason you had to wait for the JS in the background to load you wouldn't notice it as you are greeted by the home page.
+
+  \*Secondly if you are playing the game and want to review the rules, you can click on rules, then click back and will return back to the same game state almost like a save. You never have to remember a games current state as its never removed, the user simply cannot see it.
+
+### **Buttons:**
+
+- My initial home page play and rules buttons are big and large, in the same colour red as the connect 4 tile, I am a big fan of CSS styling animations so I had a look online and found [a website](https://getcssscan.com/css-buttons-examples) with simple and professional looking hover animation, I was able to modify these to fit my purpose.
+
+<img src="assets/images/MSP2 Home Buttons.png" alt="image of the home page buttons">
+
+- The hover animation lifts the button up slightly, gives it a slight shadow and reduces the transparency. Again I feel this helps with the sense of depth on the page.
+
+<img src="assets/images/MSP2 Home Button Hover.png" alt="image of the home page buttons with mouse hover">
+
+- My navigation buttons are the same for consistency and contain a small icon.
+
+<img src="assets/images/MSP2 Navigation Buttons.png" alt="image of the navigation buttons">
+
+- When viewed on a small screen, these buttons shrink down to a more square shape and the inner text is hidden.
+
+<img src="assets/images/MSP2 Navigation Buttons Hover.png" alt="image of the navigation  buttons with mouse hover">
+
+### **Swap Sides:**
+
+- Given the game is focused towards mobile users, I gave a lot of thought to the physical side of playing the game, if a user is left handed it would potential be uncomfortable if all the buttons are on the right hand side. The bottom button in the navigation buttons allows for buttons to swap sides. The image below shows the buttons on the left hand side of the screen.
+
+<img src="assets/images/MSP2 Navigation Button Left .png" alt="Navigation buttons on left">
+
+### **Rules:**
+
+- With the game aimed at a younger audience there is a change someone has not played the game before, so I give a short explanation about the game.
+
+- I implemented the red background to help contrast with the yellow font.
+
+<img src="assets/images/MSP2 Rules.png" alt="Rules page">
+
+### **Modal:**
+
+- The modal is something I am very pleased with, due to the physical limitations of the game board on small screens this game has to be played landscape at certain screen widths. Using a [SWAL](https://sweetalert2.github.io/), a JS library I was able to get a professional looking modal.
+
+<img src="assets/images/MSP2 Modal.png" alt="Initial pop up due to screen width">
+
+- Using Javascript I am able to review the screen size, if the site is loaded up in a screen size I know wont support the site the user isn't allowed to access until the device is rotated. I am more than confident I was able to get the site working on the smallest possible mobile device width so it wont leave any users unable to play the game.
+
+<img src="assets/images/MSP2 Modal Rotate.png" alt="rotation causing second pop up">
+
+- Once the user has rotated the screen they get a big 'OK' button which will then allow them to play the game.
+
+### **The Game:**
+
+- The game in all honesty wasn't 100% what I wanted, my original idea was to have tiles be erased after scoring a '4 in a row' but I ran into numerous bugs and issues which were getting far too time consuming, if you wish to see any of these they will be visibly in my repository as I made a branch off my main to tackle this aspect of the game. Luckily planning to build Connect 4 first and then work in the column erasing element paid off.
+
+- The game board is sat into the background, contrasting with the buttons and titles on the home page and rules page. I used a colour match with the background to help set this in and a border colour that is taken from the darkest part on the background to cement the board.
+
+- A big bold "Current Player" title sits above the board, this way when the game is being playing between friends on a phone it can be passed back and forth and the player order is obvious.
+
+- The game tiles marry up with the chosen colours on my palette.
+
+<img src="assets/images/MSP2 Game Screen.png" alt="Game Screen">
+
+### **Winner:**
+
+- Once a player wins, the "Current player" display is hidden and the winner is shown, this text is much larger.
+
+<img src="assets/images/MSP2 Win screen.png" alt="Winner screen">
+
+### **Draw:**
+
+- In the unlikely event of a draw (trust me its very difficult it took my multiple attempts to get this screen shot) the game will show act similarly to a win, with "Draw!" replacing the current player.
+
+<img src="assets/images/MSP2 Draw Screen.png" alt="Draw screen">
+
+### **Restart:**
+
+- Due to how the game was made and all the modifications I made thereafter, the restart button does a few things in sequence, it:
+  1.  Resets the gameOver variable back to false
+  2.  Resets the game, which in turn had to be modified to see if a game board already existed, if it does it removes and recreates.
+  3.  Resets the winner.
+  4.  Resets the first turn back to red.
+
+Although its a simply function I was rather proud of it, as it was modified numerous times as the site evolved.
+
+### **Tab Icon:**
+
+- I found a cool tab [favicon!](https://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/space-rocket-icon.html#google_vignette) strangely enough this feels like the most "developery" thing I have done so far.
+
+<img src="assets/images/MSP2 Tab Icon.png" alt="Browser Tab Icon">
+
+### **404:**
+
+- A simple 404 if something goes wrong, which links
+
+<img src="assets/images/MSP2 404 Page.png" alt="404 page">
+
+---
+
+## **Testing**
+
+I tested the site throughout the development phase using the following:
+
+- Apple Macbook air 13"
+- Iphone 15 Pro Max
+
+I also used Google dev-tools during development, ensuring responsiveness across all screen sizes.
+
+- All links on homepage.html and 404.html have been tested and are in working order.
+
+### **Validator Testing:**
+
+#### **CSS:**
+
+After running the site through the CSS validator I got no errors.
+
+<img src="assets/images/MSP2 CSS validation.png" alt="CSS validator proof">
+
+#### **HTML:**
+
+After running the site through the HTML validator I got 5 errors.
+
+<img src="assets/images/MSP2 HTML validation.png" alt="HTML validator initial run proof">
+
+- 2 errors for the 2 home page buttons, the text was sat within a H2 tag. This has now been changed to the text sitting within the button and a new class being made that overrides the generic buttons styling.
+
+- 2 errors for unclosed div's, throughout the build process I had been moving parts around to change how they appear, in this process I had accidentally removed some div's closing tags. This has been resolved and the site was unaffected.
+
+- The final error for the body resolved itself once the above was fixed and retested.
+
+<img src="assets/images/MSP2 HTML validation complete.png" alt="HTML validator 0 error proof">
+
+#### **Javascript:**
+
+I ran my JS code through 2 validators.
+
+JSHint:
+
+- Running my JS through JSHint I got 2 undefined variables, this was not a concern as "SWAL" is an external library that the validator could not see.
+
+<img src="assets/images/JSHint.png" alt="JSHint validator">
+
+ValidateJavaScript:
+
+- ValidateJs showed a lot more issues, mainly that I had no JSDoc comment on any of my functions, I had been using a commenting habit I had developed during the last project, after seeing this I went through all my functions and documented them all properly.
+
+- Line length was also an issue for a couple comments, using the validator I identified the lines effected and reduce comment length.
+
+<img src="assets/images/ValidateJS.png" alt="ValidateJS validator">
+
+- I have one remaining error which at this moment I can't resolve, it doesn't break the code so at this moment in time I have had to leave, this will be reviewed later to ensure this isn't a repeat offender in later works.
+
+<img src="assets/images/this error.png" alt="this error">
+
+### **LightHouse Testing:**
+
+Using the LightHouse in my Google DevTools I was able to optimize my website for Performance, Accessibility, SEO and best practices.
+
+<img src="assets/images/Lighthouse mobile.png" alt="Lighthouse mobile scores">
+
+- I was happy with my score on mobile, next came desktop which showed I wasn't optimized on "SEO"
+
+<img src="assets/images/Desktop SEO failure.png" alt="Lighthouse Desktop SEO score">
+
+After reviewing the lighthouse results I was able to implement a meta tag in my head section with a description summarizing the content of the page.
+
+<img src="assets/images/Lighthouse Desktop.png" alt="Lighthouse Desktop improvement">
+
+Along with all validator testing the site has been tested on numerous computers and phones as I have had friends and family review the site.
+
+## **Future-Enhancements**
+
+The following is a list of future enhancements that I would like to implement given more time and/or knowledge.
+
+- The Tetris element, starting out my main goal was to get this site fully functioning and bug free which I am happy I achieved, but to really make this project stand out and to warrant it being online I wanted to bring a new idea to a classic. Due to numerous issues that I simply do not have the skills to resolve in the time frame I have, I had to scrap.
+
+- A change in theme, as shown in my initial wireframes I was interested in the idea of changing the overall theme depending on the users preference. This would include the background image them being selected from a number of natural scenes and the colour of the tiles being selected from a colour wheel from the rules/settings menu.
+
+- I spent a long time trying to implement the tiles being meteors, I was really trying to avoid having a connect 4 board just sat on top of a background.
+
+- Given more time and skill I would have liked to modify the board its self so it sat behind a themed image, so it looked like the board was part of the theme. With the current space theme if could have been made of rockets or made to look like a space station.
+
+- If I was looking to release this website to be played between friends I would like to introduce a way of playing with a friend on a different machine, so the 2 players wouldn't need to share a screen, this was something I noticed during my research.
+
+- Animation, I would like to implement 2 forms of animation, one being a drop animation that would simulate a tile piece falling, the other being the tile floating about the board following a curser or finger. I feel this would help add a sense of realism and it is one of the few physical elements to the game, which could feel lost on the digital format.
+
+- Having reviewed everything during the final steps of this project I feel like the winner/draw screens could do with a bigger replay button in the center of the screen, at the moment the players would need to reselect from the navigation buttons.
+
+## **Deployment**
+
+The site was deployed to GitHub pages. The steps to deploy are as follows:
+
+- From this project's repository, navigate to the settings tab
+
+- From the left hand menu, select pages.
+
+- From the source section drop-down menu, select the Main Branch.
+
+- Once the main branch has been selected, the page will refresh and provide a link to the live project.
+
+You can find the live site via the following URL - https://lukethornton92.github.io/Milestone-Project-2-C4/
+
+---
+
+## **Credits**
+
+### **Honorable Mentions:**
+
+This project could not have happened without the support of the following people listed in no particular order:
+
+- Jessica Goff, for putting up with me spending many evenings getting frustrated with JS.
+
+- Richard Wells, a brilliant mentor keeping my on track.
+
+- Work colleagues, they actually came up with the name have been very keen to play the game.
+
+### **General Reference:**
+
+- I relied upon W3schools, ChatGPT and stack overflow for general references throughout the project.
+
+### **Content:**
+
+- All content was written by myself
+
+- Accessibility checker - [WAVE - Web accessibility evaluation tool](https://wave.webaim.org/)
+
+- Button Icons - https://fontawesome.com/
+
+- Fonts - https://fonts.google.com/specimen/Andika
+
+- Button CSS - https://getcssscan.com/css-buttons-examples
+
+### **Media:**
+
+- Wallpaper - https://www.vecteezy.com/vector-art/1110375-stars-and-planets-in-outer-space
+
+- Favicon - https://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/space-rocket-icon.html#google_vignette
