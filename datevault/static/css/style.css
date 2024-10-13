@@ -76,6 +76,7 @@ select {
 
 .navbar {
   background-color: rgba(0, 0, 0, 0) !important;
+  padding: 0 !important;
 }
 
 .nav-link {
@@ -104,6 +105,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+  padding: 0;
 }
 
 .footer-link {
@@ -153,8 +155,8 @@ textarea {
 
 @media (max-width: 1024px) {
   .switch-container {
-    width: 33.33%; /* Each switch will take one-third of the width */
-    display: inline-block; /* Makes them inline on larger screens */
+    width: 33.33%;
+    display: inline-block;
   }
   .switch-break {
     width: 100%; /* Ensures that each switch breaks to a new line */
