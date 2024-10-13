@@ -100,8 +100,8 @@
           class="form-control form-select"
           aria-describedby="#"
           required
+          value="{{ date.is_budget }}"
         >
-          <option value="" selected disabled>Select Budget Needed</option>
           {% for budget in budget_options %}
           <option value="{{ budget.name }}">{{ budget.value }}</option>
           {% endfor %}
