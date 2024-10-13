@@ -4,9 +4,16 @@
     <h1>Welcome To The Date Vault</h1>
 
     <h3>
-      {% if session.get('user_name') %} Welcome Back {{ session.user_name }}! {%
-      else %} {% endif %}
+      {% if session.get('user_name') %} Welcome Back {{ session.user_name }}!
     </h3>
+    {% else %}
+
+    <p>
+      Find your perfect date idea with personalized suggestions based on your
+      preferences! Filter by budget, location, and activity type to discover
+      exciting options. Re-roll for new ideas and make every moment memorable!
+    </p>
+    {% endif %}
   </div>
 </div>
 

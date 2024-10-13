@@ -10,6 +10,9 @@ body {
   background-attachment: fixed;
 }
 
+p {
+  font-size: medium;
+}
 h1 {
   font-size: 8vw;
   text-align: center;
@@ -51,12 +54,16 @@ select {
 }
 /* Navbar */
 
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28237, 231, 214, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* burger lines colour*/
+}
+
 .navbar {
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .nav-link {
-  color: #ede7d7 !important;
+  color: rgb(237, 231, 214) !important;
 }
 
 .color-link:hover {
@@ -76,9 +83,19 @@ select {
 }
 /* Footer */
 
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.footer-link {
+  margin: 0 15 px;
+  display: inline-block;
+}
+
 ul {
   list-style: none;
-  text-align: center;
 }
 
 /* Home page 
