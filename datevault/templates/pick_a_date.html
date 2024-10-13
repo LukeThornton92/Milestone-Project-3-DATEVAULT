@@ -126,12 +126,24 @@
     <div class="row">
       <div class="col-md-6">
         <p><strong>Name:</strong> {{ random_date.name }}</p>
-        <p><strong>Activity:</strong> {{ random_date.is_activity.name if random_date.is_activity else 'N/A' }}</p>
-        <p><strong>Location:</strong> {{ random_date.is_location.name if random_date.is_location else 'N/A' }}</p>
-        <p><strong>Budget:</strong> {{ random_date.is_budget.name if random_date.is_budget else 'N/A' }}</p>
+        <p>
+          <strong>Activity:</strong> {{ random_date.is_activity.name if
+          random_date.is_activity else 'N/A' }}
+        </p>
+        <p>
+          <strong>Location:</strong> {{ random_date.is_location.name if
+          random_date.is_location else 'N/A' }}
+        </p>
+        <p>
+          <strong>Budget:</strong> {{ random_date.is_budget.name if
+          random_date.is_budget else 'N/A' }}
+        </p>
       </div>
       <div class="col-md-6">
-        <p><strong>Time:</strong> {{ random_date.is_time.name if random_date.is_time else 'N/A' }}</p>
+        <p>
+          <strong>Time:</strong> {{ random_date.is_time.name if
+          random_date.is_time else 'N/A' }}
+        </p>
         <p>
           <strong>Dog-friendly:</strong> {{ 'Yes' if random_date.is_dog else
           'No' }}
@@ -145,8 +157,9 @@
           else 'No' }}
         </p>
       </div>
-      <div class="col-md-6">
-        <p><strong>Notes:</strong> {{ random_date.name }}</p>
+      <div class="col">
+        <p><strong>Notes:</strong></p>
+        <p>{{ random_date.notes }}</p>
       </div>
     </div>
   </div>
@@ -156,10 +169,12 @@
       <button class="btn btn-primary" onclick="reloadPage()">Re-Roll!</button>
     </div>
     <div class="col d-flex justify-content-center">
-      <button class="btn btn-primary" onclick="window.location.href='{{ url_for('pick_a_date') }}'">
+      <button
+        class="btn btn-primary"
+        onclick="window.location.href='{{ url_for('pick_a_date') }}'"
+      >
         Change filters
       </button>
-    </div>
     </div>
   </div>
 </div>
