@@ -157,10 +157,12 @@
           else 'No' }}
         </p>
       </div>
+      {% if random_date.notes.strip() %}
       <div class="col">
         <p><strong>Notes:</strong></p>
         <p>{{ random_date.notes }}</p>
       </div>
+      {% endif %}
     </div>
   </div>
   <div class="row mt-3">

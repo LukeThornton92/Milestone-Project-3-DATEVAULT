@@ -5,7 +5,9 @@ body {
   height: 100vh;
   margin: 0;
   color: #ede7d7;
-  overflow: hidden;
+  overflow: auto;
+  font-family: "Istok Web", "Arial Narrow", Arial, sans-serif;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -76,6 +78,7 @@ select {
 
 ul {
   list-style: none;
+  text-align: center;
 }
 
 /* Home page 
@@ -111,3 +114,7 @@ textarea {
 }
 
 /* Pick a date page */
+#random-date {
+  background-color: #ede7d7;
+  border: none;
+}
