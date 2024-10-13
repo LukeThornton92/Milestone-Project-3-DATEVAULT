@@ -8,7 +8,7 @@
   <!-- Filter Form -->
   <form method="POST" action="{{ url_for('pick_a_date') }}" id="filter-form">
     <div class="row">
-      <div class="col">
+      <div class="col pt-3">
         <div class="form-check form-switch">
           <input type="hidden" name="is_dog" value="no" />
           <label for="is_dog" class="form-label">Dog-friendly?:</label>
@@ -21,7 +21,7 @@
           />
         </div>
       </div>
-      <div class="col">
+      <div class="col pt-3">
         <div class="form-check form-switch">
           <input type="hidden" name="is_indoor" value="no" />
           <label for="is_indoor" class="form-label">Will It Be Indoors?:</label>
@@ -34,7 +34,7 @@
           />
         </div>
       </div>
-      <div class="col">
+      <div class="col pt-3">
         <div class="form-check form-switch">
           <input type="hidden" name="is_reservation" value="no" />
           <label for="is_reservation" class="form-label"
@@ -52,7 +52,7 @@
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-6 mx-auto">
+      <div class="col-12 col-md-6 mx-auto pt-3">
         <label for="is_time" class="form-label">Time of day?:</label>
         <select name="is_time" id="is_time" class="form-control form-select">
           <option value="" selected disabled>Select Time Of Day</option>
@@ -61,7 +61,7 @@
           {% endfor %}
         </select>
       </div>
-      <div class="col-12 col-md-6 mx-auto">
+      <div class="col-12 col-md-6 mx-auto pt-3">
         <label for="is_budget" class="form-label">Budget?:</label>
         <select
           name="is_budget"
@@ -78,7 +78,7 @@
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-6 mx-auto">
+      <div class="col-12 col-md-6 mx-auto pt-3">
         <label for="is_location" class="form-label">Location?:</label>
         <select
           name="is_location"
@@ -92,7 +92,7 @@
           {% endfor %}
         </select>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 pt-3">
         <label for="is_activity" class="form-label">Activity level?:</label>
         <select
           name="is_activity"
@@ -109,7 +109,7 @@
     </div>
 
     <div class="row">
-      <div class="col d-flex align-items-center justify-content-center">
+      <div class="col d-flex align-items-center justify-content-center pt-3">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
@@ -126,12 +126,12 @@
     <div class="row">
       <div class="col-md-6">
         <p><strong>Name:</strong> {{ random_date.name }}</p>
-        <p><strong>Activity:</strong> {{ random_date.is_activity }}</p>
-        <p><strong>Location:</strong> {{ random_date.is_location }}</p>
-        <p><strong>Budget:</strong> {{ random_date.is_budget }}</p>
+        <p><strong>Activity:</strong> {{ random_date.is_activity.name if random_date.is_activity else 'N/A' }}</p>
+        <p><strong>Location:</strong> {{ random_date.is_location.name if random_date.is_location else 'N/A' }}</p>
+        <p><strong>Budget:</strong> {{ random_date.is_budget.name if random_date.is_budget else 'N/A' }}</p>
       </div>
       <div class="col-md-6">
-        <p><strong>Time:</strong> {{ random_date.is_time }}</p>
+        <p><strong>Time:</strong> {{ random_date.is_time.name if random_date.is_time else 'N/A' }}</p>
         <p>
           <strong>Dog-friendly:</strong> {{ 'Yes' if random_date.is_dog else
           'No' }}
@@ -144,6 +144,9 @@
           <strong>Indoor activity:</strong> {{ 'Yes' if random_date.is_indoor
           else 'No' }}
         </p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Notes:</strong> {{ random_date.name }}</p>
       </div>
     </div>
   </div>
