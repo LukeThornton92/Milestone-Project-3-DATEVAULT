@@ -48,6 +48,7 @@ def login():
                 # If partner account found, set session values
                 session['user_id'] = partner_user.id
                 session['user_name'] = partner_user.partner_user_name  # Use partner's username
+                session['partner_user_name'] = "partner"
                 return redirect(url_for("home"))
 
         # If neither account was valid

@@ -43,17 +43,20 @@ class TimeOptions(enum.Enum):
     EVENING = "Evening"
     ANY = "Any"
     
+# Define an Enum for budget options
 class BudgetOptions(enum.Enum):
     FREE = "Free"
     CHEAP = "Cheap"
     EXPENSIVE = "Expensive"
 
+# Define an Enum for location options
 class LocationOptions(enum.Enum):
     AT_HOME = "At Home"
     LOCAL = "Local"
     DAY_TRIP = "Day Trip"
     VACATION = "Vacation"
     
+# Define an Enum for activity options
 class ActivityOptions(enum.Enum):
     RELAXED = "Relaxed"
     MODERATE = "Moderate"
