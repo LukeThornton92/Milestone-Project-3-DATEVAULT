@@ -269,6 +269,8 @@ def pick_a_date():
             filters.append(Date.is_reservation == True)
         if is_indoor:
             filters.append(Date.is_indoor == True)
+        if user_id:
+            filters.append(Date.owner_id == user_id)
         # Final line of query, unpacks list and adds all filters to query
         if filters:
             query = query.filter(*filters)
@@ -381,14 +383,14 @@ def confirm_delete_user():
     flash("User deleted successfully!", "success")
     return redirect(url_for("home"))
 
-
+'''
 @app.route('/your_saved_dates')
 def your_saved_dates():
     page = request.args.get('page', 1, type=int)  # Get the page number from the query string, default to 1
     per_page = 9  # Display 9 dates per page
     all_dates = Date.query.filter_by(owner_id=session.get('user_id')).paginate(page=page, per_page=per_page)  # Paginate the query for the logged-in user
     return render_template('your_saved_dates.html', all_dates=all_dates)  # Ensure your template name is correct
-
+'''
 @app.route("/404")
 def not_found():
     '''
