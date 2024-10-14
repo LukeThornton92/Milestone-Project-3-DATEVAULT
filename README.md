@@ -56,63 +56,97 @@ You can access the live site via the following URL. - https://github.com/LukeTho
 
 ### **Site Aims:**
 
-- x
-- x
-- x
-- x
+- To create an accessible and intuitive platform for couples to share and retrieve personalized date ideas.
+- To ensure the system offers a variety of filters to allow for a personalized experience when retrieving date ideas.
+- To provide randomised suggestions based on user preferences to keep the experience fun and spontaneous.
+- To encourage couples to build a rich database of date ideas over time.
+- To have a professional look and feel suitable for adults.
 
 ### **How Will This Be Achieved:**
 
-- x
-- x
-- x
-- x
+My project will ensure the above aims and features are accomplished by successfully achieving the following targets.
+
+- **Database Integration:** Set up a database to store date ideas with compulsory fields (e.g., activity type, cost, duration).
+- **Date Input Form:** Develop a form to capture date ideas with validation for compulsory fields.
+- **Search and Filter Functionality:** Implement a filtering system based on user preferences such as budget, activity type, and location.
+- **Random Date Selector:** Create functionality that selects a random date idea from the filtered search results.
+- **User Interface Design:** Focus on building an intuitive, attractive interface for easy navigation and interaction.
+- **Security:** Implement basic security features to protect user input and data.
+
+### **Nice To Have's:**
+
+The following items will be nice to have, I will aim to get them into the website in time but these will not be the initial focus.
+
+- Ability to email partners to sign up.
+- Google calendar invite for desired dates.
 
 ### **Research:**
 
-\*\*1.
+1. https://mattbateman.net/fun/date-idea-generator/
 
-- x
-- x
-- x
-- x
+#### Likes
 
----
+> - First site found when searched.
+> - Has filters.
 
-\*\*2.
+#### Dislikes
 
-- x
-- x
-- x
-- x
+> - Very basic.
+> - Cant personalize.
+> - Poor design.
+> - Can't save any ideas.
 
 ---
 
-\*\*3.
+2. https://thedateidea.com/
 
-- x
-- x
-- x
-- x
+#### Likes
+
+> - Modern design.
+> - Has blog posts around certain types of dates/date ideas.
+> - Lists all date ideas.
+
+#### Dislikes
+
+> - No filters, just a button for randomizing.
+> - Can't save any ideas.
+> - Poor ad placements.
 
 ---
 
-**4. **
+3.  https://myspicyvanilla.com/
 
-- x
-- x
-- x
-- x
+Claims to use "AI".
+
+#### Likes
+
+> - Has a function to sign up, will save your ideas.
+> - Dates can be shared on Whatsapp and social media.
+
+#### Dislikes
+
+> - Design feels off, colour scheme seems like a poor choice, very dark.
+> - Allows only 1 random date before being behind pay wall.
+
+---
+
+4.  https://lovewick.com/ (App)
+
+#### Likes
+
+> - Very professional design, what I aspire to be.
+> - Have built on all aspects of dating.
+
+#### Dislikes
+
+> - Less emphasis on your own ideas being in rotation, more for people without ideas.
+> - Non web based, all on the app.
 
 ---
 
 With these observations I was ready to start designing my wireframes.
 
 ### **Wireframes:**
-
-#### **Mobile Wireframes:**
-
-#### **Desktop Wireframes:**
 
    <details><summary></summary>
    <img src="" alt="">
@@ -122,19 +156,9 @@ With these observations I was ready to start designing my wireframes.
 
 ## **Building Stage**
 
-My goal is to bring an element to a new element to connect 4 that warrants it being in a digital format, my current idea is to implement a 'Tetris' style column clear every time you score a 4 in a row. This would bring another level of tactics to the game as you would need to account for points earned and the consequence of scoring and modifying the board.
-
-I want to build this site focusing on the basics of Connect 4 first, then slowly implementing the things i've highlighted from my research. This way if I run into any issues I can fall back on a solid working game.
-
 ### **Colour Scheme And Theme:**
 
-Knowing this site is aimed at children I wanted to focus on a colour scheme that would be lively enough to capture the attention of a younger audience, while also maintaining a nice user experience for all ages. The first thing I wanted to ensure was a visually stimulating and themed background, as my intention was for the theme to be easily customisable to fit a range of potential topics.
-
-My first idea was a ocean theme, but after searching for potential backgrounds online I couldn't find anything that really stuck out, so after review some other potential themes such as forests and beaches I settled on space as it is a personal interest of mine.
-
-After a little hunting and refining my search I found something [perfect](https://www.vecteezy.com/vector-art/1110375-stars-and-planets-in-outer-space), something that would pop with colour against a dark (not black) background and with a drawn aesthetic. From this image I was able to pick out my darker tones but I was still in search of 2 contrasting lighter tones that would complement the game. Connect 4 is classically played with Red tiles and Yellow tiles, so after a little while playing with the varying shades and tones I was able to find 2 that I personally liked and that worked well against the backdrop, completing my colour scheme.
-
-<img src="assets/images/MSP2 Colour pallete.png" alt="Colour palette inspiring site">
+<img src="" alt="">
 
 ### **Typography**
 
