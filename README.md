@@ -144,33 +144,63 @@ Claims to use "AI".
 
 ---
 
-With these observations I was ready to start designing my wireframes.
+### **Inspiration:**
 
-### **Wireframes:**
-
-   <details><summary></summary>
-   <img src="" alt="">
-   </details>
-
----
-
-## **Building Stage**
+Knowing that I want this website to be aimed at adults I needed to do some research into desired styles, I used the website Awwwards for inspiration and came across [Inside The Head](https://www.awwwards.com/sites/inside-the-head-publication#creator), This site has the kind of design that I aspire to generate, so I thought it best to see if I could generate something similar to test myself.
 
 ### **Colour Scheme And Theme:**
 
-<img src="" alt="">
+Taking inspiration from "Inside the head" I developed the below colour pallet, I felt it had mature earthy tones which helps reenforce the adult nature of the site.
+
+<img src="datevault/static/images/colourpallette.png" alt="colour pallette">
+
+My experience with for colours ensured that I made it my focus initially instead of leaving it to the last minute, I liked the white but wanted to make it my own. After playing around with colours for a little while I came across the boney off white called "eggshell". I felt this really helped make the font pop, while maintain a really good contrast against the background.
+
+<img src="datevault/static/images/fontcolour.png" alt="font colour">
+
+Following on from my inspiration I spent a rather long time searching for the perfect background image, after not being able to get exactly what I was after I used my iPad and Procreate to draw a simple background (again heavily influenced by "Inside the head")
+
+<img src="datevault/static/images/Background_1.jpg" alt="background image">
+
+I also made about 4 or 5 different colour combinations but settled on my first design.
 
 ### **Typography**
 
-After doing a little research into fonts, I found a useful [article](https://varrojoanna.com/the-easiest-fonts-for-kids-to-read/) talking about children and the fonts they find easiest to read, seeing as this game is aimed at a younger audience I thought it best to ensure that children were the focus when it came to the typography. I chose to use googles 'Andika' after reviewing all the recommendations, I felt this was the best middle ground for young and older players.
+The main take away from the inspiration was the font, I felt my first project was very restrained and easy to read, good for large amounts of text, my second project aimed at children and the font was very focused towards that. This project was the first time it was strictly for adults. After doing some research I came across 2 fonts that I feel emphasised these points.
 
-Titles use a font weight of 700 for a bigger bolder title, while the rules section uses the standard weight. The buttons use a weight of 600 to give it a little more weight than any paragraphs.
+- [Calistoga](https://fonts.google.com/specimen/Calistoga?preview.text=Date%20Night%20Generator&preview.size=144&classification=Display&stroke=Serif) - For the headings.
 
-Given limited amount of text I felt Andika was good enough to cover all possible uses, if for some reason it isn't available font family will default to Helvetica and then sans-serif.
+- [Istok Web](https://fonts.google.com/specimen/Istok+Web/tester) - For all other text.
 
 - All fonts were sourced from Google fonts, as stated in the credits.
 
 ---
+
+### **Wireframes:**
+
+Desktop wire frame showing the "Add new date" page.
+
+   <summary></summary>
+   <img src="datevault/static/images/desktopwireframe.png" alt="">
+   </details>
+
+Tablet wire frame showing the "Home" page.
+
+   <summary></summary>
+   <img src="datevault/static/images/ipad wireframe.png" alt="">
+   </details>
+
+Phone wire frame showing the "Login" page.
+
+   <summary></summary>
+   <img src="datevault/static/images/phonewireframe.png" alt="">
+   </details>
+
+---
+
+---
+
+## **Building Stage**
 
 ## **Features**
 
