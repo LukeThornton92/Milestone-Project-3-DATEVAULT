@@ -1,4 +1,8 @@
-# **Connect 4**
+# **The Date Vault**
+
+This website is designed to help couples plan date nights by allowing them to store and randomly retrieve date ideas. Couples can input their unique date ideas with specific compulsory fields. Later, they can filter and request a random idea that suits their preferences from the database they have built over time.
+
+You can access the live site via the following URL. - https://github.com/LukeThornton92/Milestone-Project-3-DATEVAULT
 
 ## **Site Overview**
 
@@ -36,17 +40,19 @@
 
 ### **Target Audiences:**
 
-- x
-- x
-- x
-- x
+- Couples of all ages looking for fresh and fun date ideas to strengthen their relationship.
+- Busy partners who want a quick and easy way to generate personalized date plans without spending hours planning.
+- Long-term couples seeking new and spontaneous experiences to break routine and keep things exciting.
+- Tech-savvy or beginner users who appreciate a user-friendly platform for managing and discovering date ideas.
 
 ### **User Stories:**
 
-- x
-- x
-- x
-- x
+- As a user, I want to easily input date ideas with specific details so that I can save them for future use.
+- As a user, I want to filter date ideas by budget, location, and activity type so I can find the perfect idea for my needs.
+- As a user, I want to receive a randomized date idea from my filtered results so I can experience something new and exciting.
+- As a user, I want to edit or update my saved date ideas so I can keep my list relevant and up-to-date.
+- As a user, I want the interface to be simple and intuitive so I can quickly navigate the site without confusion.
+- As a user, I want my data to be stored securely so that I can trust my personal information is safe.
 
 ### **Site Aims:**
 
