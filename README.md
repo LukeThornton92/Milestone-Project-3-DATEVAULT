@@ -329,6 +329,24 @@ My first step was admitting defeat on a CSS animation from [Codepen](https://cod
 
 Below are some of the features currently within the site.
 
+### **Nav Bar:**
+
+The Navbar was generated using bootstrap, its a simple design that I quiet like. When hovered over the words turn a burnt yellow which was originally used as a place holder colour but I ended up really liking, when you hover over "Delete user" it will turn bright red to highlight the fact its a dangerous act.
+
+<img src="datevault/static/images/navbar.png" alt="image of navbar">
+
+When you click on "logout" you will get a browser warning:
+
+<img src="datevault/static/images/browserwarninglogout.png" alt="browser warning logout">
+
+This is because this action will not take you to a new location as a way of protecting you, given its non destructive nature I felt like this was more than enough to stop you making any mistakes.
+
+When on smaller screens we get the navbar burger icon.
+
+<img src="datevault/static/images/burger.png" alt="burger icon">
+
+Following a tutorial on youtube I was able to copy the SVG file in CSS and modify the coloured lines in the burger.
+
 ### **Home Page:**
 
 - My home page is simple and minimalist, a more mature homepage to a website than I have made previously. It conveys a simple message which is all it needs to do.
@@ -338,6 +356,18 @@ Below are some of the features currently within the site.
 - Once a user is signed in it will show an alternative message using jinja2.
 
 <img src="datevault/static/images/homeafter.png" alt="image of the center of the home page after login">
+
+### **Sign Up and Login:**
+
+These are 2 simple forms, only accessible when you are not logged in as flask reviews the session to see if a user has been passed to it.
+
+<img src="datevault/static/images/signup.png" alt="Sign up form">
+
+<img src="datevault/static/images/login.png" alt="Login form">
+
+The password has a minimum requirement, this was implemented using HTML.
+
+<img src="datevault/static/images/passwordrequirements.png" alt="password requirements">
 
 ### **New Date Idea:**
 
@@ -349,19 +379,53 @@ The desktop view has form dropdowns and switches sitting side by side.
 
 <img src="datevault/static/images/mobilenewdate.png" alt="Mobile view of new date page">
 
-Then when shrunk down it will go into a vertical format, helping to keep the clean look.
+Then when shrunk down it will go into a vertical format, helping to keep the clean look. The notes text area will also shrink down to help keep the stylistic ratios.
+
+### **Pick A Date:**
+
+The initial screen of the pick a date looks identical to the new date idea form just without the notes, but when you select your filters you will have the following screen.
+
+<img src="datevault/static/images/Pick a Date card.png" alt="Pick a Date card">
+
+This card is generated using javascript switching the display from "None".
+
+Stylistically I have issues with this card, ignoring the blue border around the main title that I spent hours trying to remove, We have text in caps (from my Enum class) and some underscores. Given more time these will be removed.
+
+We have 2 buttons on the page, one allowing you to re-roll to get another random date and another that will simply refresh the page (adding display: None) so you can change the desired filters, the buttons on this page also have a colour change when hovered over.
+
+### **View All:**
+
+The view all page allows you to see you entire vault of date, this serves as a way for you to review all, make and changes or edits (incase a mistake was made during the date build process) and to delete any dates (such as a restaurant closing down).
+
+<img src="datevault/static/images/viewallpage.png" alt="page viewing all dates">
+
+clicking edit will allow you to see the edit date page, this is simply a copy of the new date page but with your information populated so you can modify. In the example below I have not changed any fields, these were all pre selected. Submitting this page takes you back to the view all.
+
+On small screens these individual cards are stacked on top of each other.
+
+<img src="datevault/static/images/edit date.png" alt="edit date page">
+
+Deleting from this page will give you a browser warning.
+
+<img src="datevault/static/images/datedeletewarning.png" alt="date delete warning">
+
+As you can see from the above example a flask flash is at the top of the screen from submitting the last edit.
+
+### **Add partner:**
+
+The add partner page is again a copy of the sign up form.
+
+<img src="datevault/static/images/addpartnerpage.png" alt="add partner page">
 
 ### **Tab Icon:**
 
-- I found a cool tab icon [favicon!](https://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/space-rocket-icon.html#google_vignette) strangely enough this feels like the most "developery" thing I have done so far.
+- I found a cool tab icon [favicon!](https://www.flaticon.com/free-icons/vault), I like it and it fits the theme!
 
 <img src="assets/images/" alt="Browser Tab Icon">
 
 ### **404:**
 
-- A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in.
-
-<img src="assets/images/" alt="404 page">
+- A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in. I would show you a render but in all honesty I dont know how to force a 404 to open when using flask!
 
 ---
 
