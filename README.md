@@ -206,11 +206,13 @@ Knowing I wanted to use PostgreSQL (as that is what I learnt) I sat down and dre
 
    <img src="datevault/static/images/DrawSQL.png" alt="SQL database">
 
-This made building out my models.py file much easier, I knew exact names and could start to think about character lengths and if the fields could be nullable. One big thing this highlighted early on was how I was going to link the users account with their partners account, I came up with a easy solution that avoided adding complexity. My solution was to have the main user either sign up or physically get the partner to sign up through the main account, this way we could easily link
+This made building out my models.py file much easier, I knew exact names and could start to think about character lengths and if the fields could be nullable. One big thing this highlighted early on was how I was going to link the users account with their partners account, I came up with a easy solution that avoided adding complexity. My solution was to have the main user either sign up or physically get the partner to sign up through the main account, essentially creating 2 ways of logging into the same account.
 
-I first built out my Login class which went exactly as planned, I used this in conjunction with my routes.py and tested it ensuring it worked as expected.
+I first built out my "Login" class which went exactly as planned, I used this in conjunction with my routes.py and tested it ensuring it worked as expected.
 
-After which I tackled "Date" class which was a little harder due to its size, but using my drawing from before I was able to get through this painlessly. The biggest difficulty during this process was learning that you will need to migrate the changes made to the database which was a good learning experience.
+After building it first with simple text based passwords I spoke to my mentor concerning hashing my passwords for protection, I as able to go into the Code Institutes non relational database lessons to view the hashing method.
+
+After which I tackled "Date" class which was a little harder due to its size, but using my drawing from before I was able to get through this painlessly. The biggest difficulty during this process was learning that you will need to migrate the changes made to the database which was a frustrating but good learning experience.
 
 <img src="datevault/static/images/migrations.png" alt="Migrations folder">
 
@@ -218,11 +220,22 @@ During this process I learnt about "Enum", I knew that if I created a dropdown u
 
 <img src="datevault/static/images/Enums.png" alt="Example Enums">
 
-My database also has a cascade delete, if a user deletes their login, it will remove all attached dates.
+My database also has a cascade delete, if a user deletes their login, it will remove all attached dates. This has been tested and works
 
 ### **routes.py**
 
-This was a built slowly, I would build one page with any functions it may have and test it, once I was happy with it I moved on.
+This was a built slowly, I would build one page with any functions it may have and would test it manually, once I was happy with it I moved on.
+
+Within this I have a few parts I am proud of:
+
+- **Sign Up:**
+  My sign up route will query the database reviewing if the email entered is already in the table, if so it will flash a message asking you to login, it will then reload the page. I decided to reload the page instead of redirecting to the login incase the wrong email was entered.
+
+  It will also review the username to see if that is taken, usernames will need to be unique.
+
+<img src="datevault/static/images/" alt="signup route">
+
+Along with checking the password and username it also ensures the password and password confirmation are the same.
 
 ### **Page Creation:**
 
