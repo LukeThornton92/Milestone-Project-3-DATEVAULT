@@ -425,7 +425,7 @@ The add partner page is again a copy of the sign up form.
 
 ### **404:**
 
-- A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in. I would show you a render but in all honesty I dont know how to force a 404 to open when using flask!
+- A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in. I would show you a render but in all honesty I don't know how to force a 404 to open when using flask!
 
 ---
 
