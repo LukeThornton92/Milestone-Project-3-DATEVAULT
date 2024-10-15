@@ -230,13 +230,17 @@ Within this I have a few parts I am proud of:
 
 - **Sign Up:**
 
-  My sign up route will query the database reviewing if the email entered is already in the table, if so it will flash a message asking you to login, it will then reload the page. I decided to reload the page instead of redirecting to the login incase the wrong email was entered.
+My sign up route will query the database reviewing if the email entered is already in the table, if so it will flash a message asking you to login, it will then reload the page. I decided to reload the page instead of redirecting to the login incase the wrong email was entered.
 
-  It will also review the username to see if that is taken, usernames will need to be unique.
+<img src="datevault/static/images/emailcheck.png" alt="email check">
 
-<img src="datevault/static/images/" alt="signup route">
+It will also review the username to see if that is taken, usernames will need to be unique.
+
+<img src="datevault/static/images/username.png" alt="username check">
 
 Along with checking the password and username it also ensures the password and password confirmation are the same.
+
+<img src="datevault/static/images/passwordcheck.png" alt="password check">
 
 Once signed up you are redirected to the login page.
 
@@ -247,8 +251,8 @@ Once signed up you are redirected to the login page.
   If not a flash warning is raised.
 
 - **Add Partner:**
-  My add partner is essentially the same as my sign up,
--
+
+My add partner is essentially the same as my sign up, except all information is being pushed into the partner side of the table and the document is only accessible if you have no partner information already on your account.
 
 ## **Features**
 
@@ -258,19 +262,21 @@ Below are some of the features currently within the site.
 
 - My home page is simple and minimalist, a more mature homepage to a website than I have made previously. It conveys a simple message which is all it needs to do.
 
-- Once a user is signed it will show an alternative message using jinja2.
+<img src="assets/images/" alt="image of the center of the home page before login">
 
-<img src="assets/images/" alt="image of the center of the home page">
+- Once a user is signed in it will show an alternative message using jinja2.
+
+<img src="assets/images/" alt="image of the center of the home page after login">
 
 ### **Tab Icon:**
 
-- I found a cool tab [favicon!](https://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/space-rocket-icon.html#google_vignette) strangely enough this feels like the most "developery" thing I have done so far.
+- I found a cool tab icon [favicon!](https://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/space-rocket-icon.html#google_vignette) strangely enough this feels like the most "developery" thing I have done so far.
 
 <img src="assets/images/" alt="Browser Tab Icon">
 
 ### **404:**
 
-- A simple 404 if something goes wrong, which links
+- A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in.
 
 <img src="assets/images/" alt="404 page">
 

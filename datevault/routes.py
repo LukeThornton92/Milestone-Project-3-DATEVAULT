@@ -70,9 +70,9 @@ def signup():
     if request.method == "POST":
         print("Signup form submitted")
         # Gets info from form
-        user_name=request.form.get("user_name").strip()
+        user_name=request.form.get("user_name")
         password=request.form.get("SignupPassword")
-        email=request.form.get("email").lower().strip()
+        email=request.form.get("email").lower()
         confirm_password=request.form.get("ConfirmSignupPassword")
 
         if not email or not password or not user_name or not confirm_password:
@@ -98,6 +98,7 @@ def signup():
         if existing_user:
             flash("Email is already registered. Please log in or use another email.","warning")
             return redirect(url_for("signup"))
+        
         signup = Login(
             # Creates a new user
             user_name=user_name,
@@ -136,7 +137,11 @@ def add_partner():
             flash("Passwords didn't match! Please try again.", "warning")
             return redirect(url_for("add_partner"))
         
-        # existing_partner = Login.query.filter_by(email=partner_email).first()
+        existing_user = Login.query.filter(or_(Login.email == partner_email,Login.partner_email == partner_email)).first()
+        if existing_user:
+            flash("User account already exists!","warning")
+            return redirect(url_for("add_partner"))
+
 
         user_id = session.get('user_id')
         user = Login.query.get(user_id)
