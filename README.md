@@ -229,6 +229,7 @@ This was a built slowly, I would build one page with any functions it may have a
 Within this I have a few parts I am proud of:
 
 - **Sign Up:**
+
   My sign up route will query the database reviewing if the email entered is already in the table, if so it will flash a message asking you to login, it will then reload the page. I decided to reload the page instead of redirecting to the login incase the wrong email was entered.
 
   It will also review the username to see if that is taken, usernames will need to be unique.
@@ -237,7 +238,11 @@ Within this I have a few parts I am proud of:
 
 Along with checking the password and username it also ensures the password and password confirmation are the same.
 
-### **Page Creation:**
+Once signed up you are redirected to the login page.
+
+- **Login:**
+
+  My login route will
 
 -
 
