@@ -13,7 +13,7 @@ Please see my Github repository - https://github.com/LukeThornton92/Milestone-Pr
 
 ## **Site Overview**
 
-<img src="" alt="">
+<img src="datevault/static/images/amiresponsive.png" alt="am i responsive">
 
 ## Table of Contents:
 
