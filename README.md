@@ -28,13 +28,23 @@ Please see my Github repository - https://github.com/LukeThornton92/Milestone-Pr
    - [**_Wireframes_**](#wireframes)
    - [**_Colour Scheme And Theme_**](#colour-scheme-and-theme)
    - [**_Typography_**](#typography)
-3. [**Features**](#features)
-   - [**_Home Page_**](#home-page)
+3. [**Back End**](#back_end)
+   - [**_models.py_**](#models.py)
+   - [**_routes.py_**](#routes.py)
+4. [**Front End**](#front_end)
+   - [**_Design_**](#design)
+   - [**_Nav Bar_**](#nav_bar)
+   - [**_Sign Up and Login_**](#sign_up_and_login)
+   - [**_New Date Idea_**](#new_date_idea)
+   - [**_Pick A Date_**](#pick_a_date)
+   - [**_View All_**](#view_all)
+   - [**_Add partner_**](#add_partner)
+   - [**_Delete User_**](#delete_user)
+   - [**_Tab Icon_**](#tab_icon)
    - [**_404_**](#404)
-4. [**Future Enhancements**](#future-enhancements)
 5. [**Testing**](#testing)
    - [**_Validator Testing_**](#validator-testing)
-6. [**Deployment**](#deployment)
+6. [**Future Enhancements**](#future-enhancements)
 7. [**Credits**](#credits)
    - [**_Honourable Mentions_**](#honourable-mentions)
    - [**_General Reference_**](#general-refrence)
@@ -323,7 +333,7 @@ This protects the page from someone logged in, trying to log in or sign up again
 
 Knowing that this project was to show off my backend skills, I gave myself less time than I would normally give to add the finishing touches to my front end development, overall I am happy but I know I have aspects of the site that could be worked on, below I go into more detail about how the website looks and acts.
 
-### **Design**
+### **Design:**
 
 My first step was admitting defeat on a CSS animation from [Codepen](https://codepen.io/wibs/pen/aVaKJK) of a vault opening when hovered, it was actually the defining moment of me choosing a name for the site. After numerous attempts of getting it to work I simply couldn't, not wanting to invest more time in something that ultimately didn't matter I removed it. This was the vault image you see in the wireframes.
 
@@ -528,6 +538,4 @@ This project could not have happened without the support of the following people
 
 ### **Media:**
 
-- Wallpaper - https://www.vecteezy.com/vector-art/1110375-stars-and-planets-in-outer-space
-
-- Favicon - https://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/space-rocket-icon.html#google_vignette
+- Favicon - https://www.flaticon.com/free-icons/vault
