@@ -417,6 +417,14 @@ The add partner page is again a copy of the sign up form.
 
 <img src="datevault/static/images/addpartnerpage.png" alt="add partner page">
 
+### **Delete User:**
+
+You get a page just for a confirmation.
+
+<img src="datevault/static/images/Deleteuser.png" alt="delete user">
+
+And then one last browser pop up to make sure you are are positive.
+
 ### **Tab Icon:**
 
 - I found a cool tab icon [favicon!](https://www.flaticon.com/free-icons/vault), I like it and it fits the theme!
@@ -428,10 +436,6 @@ The add partner page is again a copy of the sign up form.
 - A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in. I would show you a render but in all honesty I don't know how to force a 404 to open when using flask!
 
 ---
-
-CodeInstitute
-CodeInstitute@google.com
-CodeInstitute2024
 
 ## **Testing**
 
@@ -446,11 +450,13 @@ Along with my devices I passed the site onto numerous friends and colleagues who
 
 - All links on homepage.html and 404.html have been tested and are in working order.
 
+- In terms of Python testing I would use numerous print statements (which I have left in as proof), these were invaluable as I was able to see exactly what my code was outputting and build off of it. This helped so much that at the last stages of this project I was coding solutions to problems without any issues or reading online.
+
 ### **Validator Testing:**
 
 #### **CSS:**
 
-After running the site through the CSS validator I got no errors.
+After running the site through the CSS validator I got 1 error.
 
 <img src="assets/images/MSP2 CSS validation.png" alt="CSS validator proof">
 
