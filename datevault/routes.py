@@ -123,10 +123,10 @@ def add_partner():
     Creates the signup page for partner and updates database with signup info.
     '''
     if request.method == "POST":
-        partner_user_name = request.form.get("partner_user_name").strip()
-        partner_password = request.form.get("partner_SignupPassword").strip()
+        partner_user_name = request.form.get("partner_user_name")
+        partner_password = request.form.get("partner_SignupPassword")
         partner_email = request.form.get("partner_email").lower()
-        confirm_password = request.form.get("confirm_partner_SignupPassword").lower
+        confirm_password = request.form.get("confirm_partner_SignupPassword")
 
         if not partner_user_name or not partner_password or not partner_email:
             flash("Please fill out all partner details.", "warning")
