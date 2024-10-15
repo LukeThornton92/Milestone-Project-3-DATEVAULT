@@ -242,8 +242,12 @@ Once signed up you are redirected to the login page.
 
 - **Login:**
 
-  My login route will
+  My login route will first ensure all fields are populated to ensure no errors, it will then check to see if the email entered is in the table, it will also check to see if its in the partners email column, key information is then passed to the session to be used later on.
 
+  If not a flash warning is raised.
+
+- **Add Partner:**
+  My add partner is essentially the same as my sign up,
 -
 
 ## **Features**
