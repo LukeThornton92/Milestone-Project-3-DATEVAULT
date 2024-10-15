@@ -53,7 +53,7 @@ def login():
 
         # If neither account was valid
         flash("Invalid email or password. Please try again.", "danger")
-        print("Error, Invalid email")
+        # print("Error, Invalid email")
     
     return render_template("login.html")
 
@@ -68,7 +68,7 @@ def signup():
         return redirect(url_for('home'))
 
     if request.method == "POST":
-        print("Signup form submitted")
+        # print("Signup form submitted")
         # Gets info from form
         user_name=request.form.get("user_name")
         password=request.form.get("SignupPassword")
@@ -113,7 +113,7 @@ def signup():
         # Pushes it to Database
         db.session.add(signup)
         db.session.commit()
-        print("New partner added to the account")
+        # print("New partner added to the account")
         flash("Signup successful! Please log in.","success")
         return redirect(url_for("login"))
     return render_template("signup.html")
@@ -153,7 +153,7 @@ def add_partner():
             # Session updates with partner name
             session['partner_user_name'] = partner_user_name
 
-            print("Partner info added")
+            # print("Partner info added")
             return redirect(url_for("home"))
     return render_template("add_partner.html")
 
@@ -176,7 +176,7 @@ def new_idea():
         return redirect(url_for('home'))
     
     if request.method == "POST":
-        print(request.form)
+        # print(request.form)
         name=request.form.get("name")
         is_time=request.form.get("is_time")
         # Checks to see if valid entry, protects database. Also converts is_time to a string.
@@ -207,7 +207,7 @@ def new_idea():
             flash("Invalid Activity Selection! How did you do that?","error")
             return redirect(url_for('new_idea'))
         is_dog = "is_dog" in request.form # Returns True if checked, wont return anything if not which equals False
-        print(f"Is Dog: {is_dog}")  # Debugging line
+        # print(f"Is Dog: {is_dog}")  # Debugging line
         is_reservation = "is_reservation" in request.form
         is_indoor = "is_indoor" in request.form
         notes=request.form.get("notes")
@@ -244,9 +244,9 @@ def pick_a_date():
 
     # Any dates in the table? Jinja2 uses this.
     user_id = session.get('user_id')
-    print(user_id) #debugging
+    # print(user_id) #debugging
     no_date_check = Date.query.filter_by(owner_id=user_id).first()
-    print(no_date_check)
+    # print(no_date_check)
 
     random_date = None
 
@@ -260,7 +260,7 @@ def pick_a_date():
         is_indoor = request.form.get("is_indoor") == "yes"
 
         # Debugging, booleans only return False
-        print(f"is_dog: {is_dog}, is_reservation: {is_reservation}, is_indoor: {is_indoor}")
+        # print(f"is_dog: {is_dog}, is_reservation: {is_reservation}, is_indoor: {is_indoor}")
 
         query = Date.query # Builds query
 
@@ -289,7 +289,7 @@ def pick_a_date():
 
         result = query.all()
 
-        print(filters) 
+        #print(filters) 
 
         # Gets count of how many dates match
         result_count = query.count()
@@ -319,8 +319,8 @@ def view_all():
     all_dates = Date.query.filter_by(owner_id=user_id).all()
     
     # Debugging
-    print(f"User ID: {user_id}")
-    print(f"All dates: {all_dates}")
+    #print(f"User ID: {user_id}")
+    #print(f"All dates: {all_dates}")
 
     
     return render_template("view_all.html", all_dates=all_dates)
