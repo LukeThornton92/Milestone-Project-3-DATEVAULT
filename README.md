@@ -192,13 +192,9 @@ Phone wire frame showing the "Login" page.
 
 ---
 
-## **Building Stage**
+## **Back End**
 
-Below are some of the steps I went through during building the site.
-
-### **Design**
-
-My first step was admitting defeat on a CSS animation from [Codepen](https://codepen.io/wibs/pen/aVaKJK) of a vault opening when hovered, it was actually the defining moment of me choosing a name for the site. After numerous attempts of getting it to work I simply couldn't, not wanting to invest more time in something that ultimately didn't matter I removed it. This was the vault image you see in the wireframes.
+Below are some of the steps I went through during building the backend of my site.
 
 ### **models.py**
 
@@ -221,6 +217,8 @@ During this process I learnt about "Enum", I knew that if I created a dropdown u
 <img src="datevault/static/images/Enums.png" alt="Example Enums">
 
 My database also has a cascade delete, if a user deletes their login, it will remove all attached dates. This has been tested and works
+
+---
 
 ### **routes.py**
 
@@ -246,15 +244,43 @@ Once signed up you are redirected to the login page.
 
 - **Login:**
 
-  My login route will first ensure all fields are populated to ensure no errors, it will then check to see if the email entered is in the table, it will also check to see if its in the partners email column, key information is then passed to the session to be used later on.
+My login route will first ensure all fields are populated to ensure no errors, it will then check to see if the email entered is in the table, it will also check to see if its in the partners email column, key information is then passed to the session to be used later on.
 
-  If not a flash warning is raised.
+<img src="datevault/static/images/loginroute.png" alt="login">
+
+If not a flash warning is raised.
 
 - **Add Partner:**
 
 My add partner is essentially the same as my sign up, except all information is being pushed into the partner side of the table and the document is only accessible if you have no partner information already on your account.
 
-## **Features**
+- **New Date Idea:**
+
+Now we are getting into what sets my site apart from other date sites, the ability to log and save your own custom date ideas.
+
+All in all this part was rather simple, at the end of the day its only filling in a form and pushing it to the database, the big thing for me when building this was the inclusion of "Enums". After doing some reading and a little brainstorming with ChatGPT I felt like it was a quick and easy way of getting the results I wanted, it also gave me the ability to change my mind later down the line if I wanted in terms of drop down selections.
+
+<img src="datevault/static/images/newdate.png" alt="new date idea enums">
+
+In the above example you can see the code referencing the Enum thats imported in from my Models.py file, checking if its a member and if true, assigning that value to be pushed to the database. If false, by someone editing the dropdown it will flash a message, this protects the database.
+
+- **Pick A Date:**
+
+This is the biggest draw to the site and was the reason I even chose this in the first place, I wanted the ability to chose a random date from a collection of dates that I had amassed over a period of time.
+
+First things first I wanted to show a different screen to any new users with no dates, if you don't have a date it should push you to view the date creation page first.
+
+<img src="datevault/static/images/datecheck.png" alt="logic for no dates">
+
+If you have dates you will be shown the form, this is basically a copy of the create date form but missing the notes section.
+
+## **Front End**
+
+Knowing that this project was to show off my backend skills, I gave myself less time than I would normally give to add the finishing touches to my front end development, overall I am happy but I know I have aspects of the site that could be worked on, below I go into more detail about how the website looks and acts.
+
+### **Design**
+
+My first step was admitting defeat on a CSS animation from [Codepen](https://codepen.io/wibs/pen/aVaKJK) of a vault opening when hovered, it was actually the defining moment of me choosing a name for the site. After numerous attempts of getting it to work I simply couldn't, not wanting to invest more time in something that ultimately didn't matter I removed it. This was the vault image you see in the wireframes.
 
 Below are some of the features currently within the site.
 
@@ -281,6 +307,10 @@ Below are some of the features currently within the site.
 <img src="assets/images/" alt="404 page">
 
 ---
+
+CodeInstitue
+CodeInstitue@google.com
+CodeInstitue1
 
 ## **Testing**
 
