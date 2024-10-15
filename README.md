@@ -2,7 +2,14 @@
 
 This website is designed to help couples plan date nights by allowing them to store and randomly retrieve date ideas. Couples can input their unique date ideas with specific compulsory fields. Later, they can filter and request a random idea that suits their preferences from the database they have built over time.
 
-You can access the live site via the following URL. - https://github.com/LukeThornton92/Milestone-Project-3-DATEVAULT
+You can access the live site via the following URL - https://the-date-vault-df9f796aae0e.herokuapp.com/
+
+To view a pre-populated date vault please use the following log in details (please don't delete user):
+
+Email - CodeInstitute@google.com
+Password - CodeInstitute2024
+
+Please see my Github repository - https://github.com/LukeThornton92/Milestone-Project-3-DATEVAULT
 
 ## **Site Overview**
 
@@ -326,11 +333,23 @@ Below are some of the features currently within the site.
 
 - My home page is simple and minimalist, a more mature homepage to a website than I have made previously. It conveys a simple message which is all it needs to do.
 
-<img src="assets/images/" alt="image of the center of the home page before login">
+<img src="datevault/static/images/homebefore.png" alt="image of the center of the home page before login">
 
 - Once a user is signed in it will show an alternative message using jinja2.
 
-<img src="assets/images/" alt="image of the center of the home page after login">
+<img src="datevault/static/images/homeafter.png" alt="image of the center of the home page after login">
+
+### **New Date Idea:**
+
+- Given the time frame I gave myself for front end development I felt it best to keep it simple, bootstrap really came into play with this as it was able to give me the flexibility and speed needed to build a responsive site. Here you can see me new date form on both desktop and on a mobile device.
+
+<img src="datevault/static/images/desktopnewdate.png" alt="Desktop view of new date page">
+
+The desktop view has form dropdowns and switches sitting side by side.
+
+<img src="datevault/static/images/mobilenewdate.png" alt="Mobile view of new date page">
+
+Then when shrunk down it will go into a vertical format, helping to keep the clean look.
 
 ### **Tab Icon:**
 
