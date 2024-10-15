@@ -17,7 +17,7 @@ Please see my Github repository - https://github.com/LukeThornton92/Milestone-Pr
 
 ## Table of Contents:
 
-1. [**Site Overview**](#site-overview)
+1. [**The Date Vault**](#the-date-vault)
 2. [**Planning stage**](#planning-stage)
    - [**_Target Audiences_**](#target-audiences)
    - [**_User Stories_**](#user-stories)
