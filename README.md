@@ -429,8 +429,6 @@ And then one last browser pop up to make sure you are are positive.
 
 - I found a cool tab icon [favicon!](https://www.flaticon.com/free-icons/vault), I like it and it fits the theme!
 
-<img src="assets/images/" alt="Browser Tab Icon">
-
 ### **404:**
 
 - A simple 404 if something goes wrong, which has links back to all the pages available depending if the user in logged in. I would show you a render but in all honesty I don't know how to force a 404 to open when using flask!
@@ -458,93 +456,51 @@ Along with my devices I passed the site onto numerous friends and colleagues who
 
 After running the site through the CSS validator I got 1 error.
 
-<img src="assets/images/MSP2 CSS validation.png" alt="CSS validator proof">
+<img src="datevault/static/images/CSSvalerror.png" alt="CSS validator error">
+
+This was simply a space after a value, this was resolved and now I have no errors.
+
+<img src="datevault/static/images/CSSval.png" alt="CSS validator proof">
 
 #### **HTML:**
 
 After running the site through the HTML validator I got 5 errors.
 
-<img src="assets/images/MSP2 HTML validation.png" alt="HTML validator initial run proof">
+<img src="datevault/static/images/htmlvalerror.png" alt="HTML validator initial run proof">
 
-- 2 errors for the 2 home page buttons, the text was sat within a H2 tag. This has now been changed to the text sitting within the button and a new class being made that overrides the generic buttons styling.
-
-- 2 errors for unclosed div's, throughout the build process I had been moving parts around to change how they appear, in this process I had accidentally removed some div's closing tags. This has been resolved and the site was unaffected.
-
-- The final error for the body resolved itself once the above was fixed and retested.
-
-<img src="assets/images/MSP2 HTML validation complete.png" alt="HTML validator 0 error proof">
+- These all seemed to be from Flasks/jinja2's interaction with the webpage and the validator, if not I will modify at a later date.
 
 #### **Javascript:**
 
-I ran my JS code through 2 validators.
+I ran my JS code through JSHint:
 
-JSHint:
+No errors
 
-- Running my JS through JSHint I got 2 undefined variables, this was not a concern as "SWAL" is an external library that the validator could not see.
-
-<img src="assets/images/JSHint.png" alt="JSHint validator">
-
-ValidateJavaScript:
-
-- ValidateJs showed a lot more issues, mainly that I had no JSDoc comment on any of my functions, I had been using a commenting habit I had developed during the last project, after seeing this I went through all my functions and documented them all properly.
-
-- Line length was also an issue for a couple comments, using the validator I identified the lines effected and reduce comment length.
-
-<img src="assets/images/ValidateJS.png" alt="ValidateJS validator">
-
-- I have one remaining error which at this moment I can't resolve, it doesn't break the code so at this moment in time I have had to leave, this will be reviewed later to ensure this isn't a repeat offender in later works.
-
-<img src="assets/images/this error.png" alt="this error">
+<img src="datevault/static/images/Jsvalidator.png" alt="JS validator initial run proof">
 
 ### **LightHouse Testing:**
 
 Using the LightHouse in my Google DevTools I was able to optimize my website for Performance, Accessibility, SEO and best practices.
 
-<img src="assets/images/Lighthouse mobile.png" alt="Lighthouse mobile scores">
+<img src="datevault/static/images/lighthousemobile.png" alt="lighthouse mobile proof">
 
-- I was happy with my score on mobile, next came desktop which showed I wasn't optimized on "SEO"
+- I was happy with my score on mobile.
 
-<img src="assets/images/Desktop SEO failure.png" alt="Lighthouse Desktop SEO score">
+<img src="datevault/static/images/lighthousedesktop.png" alt="lighthouse desktop proof">
 
-After reviewing the lighthouse results I was able to implement a meta tag in my head section with a description summarizing the content of the page.
-
-<img src="assets/images/Lighthouse Desktop.png" alt="Lighthouse Desktop improvement">
-
-Along with all validator testing the site has been tested on numerous computers and phones as I have had friends and family review the site.
+- I was happy with my score on desktop.
 
 ## **Future-Enhancements**
 
 The following is a list of future enhancements that I would like to implement given more time and/or knowledge.
 
-- The Tetris element, starting out my main goal was to get this site fully functioning and bug free which I am happy I achieved, but to really make this project stand out and to warrant it being online I wanted to bring a new idea to a classic. Due to numerous issues that I simply do not have the skills to resolve in the time frame I have, I had to scrap.
+- For some reason my pages were slightly too large, my idea was a static page that you didn't need to scroll on but for the life of me I couldn't fix it.
 
-- A change in theme, as shown in my initial wireframes I was interested in the idea of changing the overall theme depending on the users preference. This would include the background image them being selected from a number of natural scenes and the colour of the tiles being selected from a colour wheel from the rules/settings menu.
+- Pagination. My view all dates was originally planned to be capped at 9 per page, and then having either a scroll or arrow buttons to "rotate the page" to the next 9 dates. This simply would have eaten up too much time. Moving forward now I know what its called and the fact its built into flask I would be confident to tackle this early giving it the time needed.
 
-- I spent a long time trying to implement the tiles being meteors, I was really trying to avoid having a connect 4 board just sat on top of a background.
+- Email ability, being able to send your partner an email asking them to sign up and linking accounts that way.
 
-- Given more time and skill I would have liked to modify the board its self so it sat behind a themed image, so it looked like the board was part of the theme. With the current space theme if could have been made of rockets or made to look like a space station.
-
-- If I was looking to release this website to be played between friends I would like to introduce a way of playing with a friend on a different machine, so the 2 players wouldn't need to share a screen, this was something I noticed during my research.
-
-- Animation, I would like to implement 2 forms of animation, one being a drop animation that would simulate a tile piece falling, the other being the tile floating about the board following a curser or finger. I feel this would help add a sense of realism and it is one of the few physical elements to the game, which could feel lost on the digital format.
-
-- Having reviewed everything during the final steps of this project I feel like the winner/draw screens could do with a bigger replay button in the center of the screen, at the moment the players would need to reselect from the navigation buttons.
-
-## **Deployment**
-
-The site was deployed to GitHub pages. The steps to deploy are as follows:
-
-- From this project's repository, navigate to the settings tab
-
-- From the left hand menu, select pages.
-
-- From the source section drop-down menu, select the Main Branch.
-
-- Once the main branch has been selected, the page will refresh and provide a link to the live project.
-
-You can find the live site via the following URL - https://lukethornton92.github.io/Milestone-Project-2-C4/
-
----
+- Google calendar invites, having the date you picked able to create a calendar invited based on date and time.
 
 ## **Credits**
 
@@ -552,11 +508,9 @@ You can find the live site via the following URL - https://lukethornton92.github
 
 This project could not have happened without the support of the following people listed in no particular order:
 
-- Jessica Goff, for putting up with me spending many evenings getting frustrated with JS.
+- Jessica Goff, for putting up with me.
 
-- Richard Wells, a brilliant mentor keeping my on track.
-
-- Work colleagues, they actually came up with the name have been very keen to play the game.
+- Richard Wells, a brilliant mentor keeping me on track.
 
 ### **General Reference:**
 
@@ -566,13 +520,11 @@ This project could not have happened without the support of the following people
 
 - All content was written by myself
 
-- Accessibility checker - [WAVE - Web accessibility evaluation tool](https://wave.webaim.org/)
-
 - Button Icons - https://fontawesome.com/
 
-- Fonts - https://fonts.google.com/specimen/Andika
+- Fonts - https://fonts.google.com/
 
-- Button CSS - https://getcssscan.com/css-buttons-examples
+- Bootstrap
 
 ### **Media:**
 
