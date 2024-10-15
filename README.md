@@ -272,7 +272,45 @@ First things first I wanted to show a different screen to any new users with no 
 
 <img src="datevault/static/images/datecheck.png" alt="logic for no dates">
 
-If you have dates you will be shown the form, this is basically a copy of the create date form but missing the notes section.
+If you have dates you will be shown the form, this is basically a copy of the create date form but missing the notes section. Just input the desired filters depending on what you want and press submit.
+
+My chosen method of filtering the dates was to start with an empty list, collect all the filters and append them into the list and then finally unpack the list of filters and pass that to "query", finally it will pick a random date from the list of dates found.
+
+<img src="datevault/static/images/pickadate.png" alt="pick a date logic">
+
+- **Edit / Delete:**
+
+I have implemented full date editing along with the ability to delete your account, since the logic is so similar I will show the logic behind editing the dates.
+
+First getting the date_id is crucial:
+
+<img src="datevault/static/images/date_id.png" alt="get date_id">
+
+Then passing this over the POST method to update, and finally committing to the database.
+
+<img src="datevault/static/images/edit date.png" alt="edit date">
+
+Deleting a date follows the same logic as seen below, I have also included the logic for deleting a user.
+
+<img src="datevault/static/images/delete.png" alt="delete date and user">
+
+- **Logout:**
+
+With all the user data being stored in the session, to "logout" I simply clear the session.
+
+<img src="datevault/static/images/logout.png" alt="log out">
+
+- **General Logic:**
+
+To ensure the website is safe I have included some general logic into some of the routes to make sure no one is able to access certain pages while logged in or out, moving forward I will be ensuring I spend more time on not repeating code but this was a late addition to the page.
+
+<img src="datevault/static/images/notloggedin.png" alt="not logged in?">
+
+This protects the page from someone from bypassing previous measures and accessing the page while not logged in.
+
+<img src="datevault/static/images/loggedin.png" alt="logged in?">
+
+This protects the page from someone logged in, trying to log in or sign up again.
 
 ## **Front End**
 
@@ -308,9 +346,9 @@ Below are some of the features currently within the site.
 
 ---
 
-CodeInstitue
-CodeInstitue@google.com
-CodeInstitue1
+CodeInstitute
+CodeInstitute@google.com
+CodeInstitute2024
 
 ## **Testing**
 

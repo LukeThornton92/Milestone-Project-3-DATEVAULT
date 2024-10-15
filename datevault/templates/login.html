@@ -27,6 +27,8 @@
       required
       maxlength="250"
       method="POST"
+      pattern="(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{5,}"
+      title="Password must contain at least one capital letter, one number, and be at least 5 characters long"
     />
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>

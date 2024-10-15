@@ -34,6 +34,8 @@
       required
       maxlength="250"
       name="SignupPassword"
+      pattern="(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{5,}"
+      title="Password must contain at least one capital letter, one number, and be at least 5 characters long"
     />
   </div>
   <div class="mb-3">
@@ -47,6 +49,8 @@
       required
       maxlength="250"
       name="ConfirmSignupPassword"
+      pattern="(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{5,}"
+      title="Password must contain at least one capital letter, one number, and be at least 5 characters long"
     />
   </div>
   <button type="submit" class="btn btn-primary btn-lg">Submit</button>
